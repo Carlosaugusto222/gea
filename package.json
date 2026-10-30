@@ -1,0 +1,47 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://x-access-token:ghs_4898426_eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRobmQiLCJjdHgiOiIzQUotOFBYZ214V3BXMjZ4Y0dVZEpzLTNJLUpUd0JHekxuOE4zTVVQNnFqYUprMEE1eHZMVElsSENBIiwiZXhwIjoxNzkzMzI3Nzk3LCJpYXQiOjE3OTMzMjQxOTcsImlzcyI6ImdpdGh1YiIsImp0aSI6IjBlMTg3MTFjLTFmY2EtNDQ3YS1iMzYzLTZjZDhkNjRkODYzZiIsInZlciI6M30.49btF49QIbRd8V_gsVbSFF8bj2ELuCDcEgrHPorBPJgmabZEIUcgo-La5PgKcDa9A1iBABUsVqAVcSEaYkEIpg@github.com/Carlosaugusto222/gea.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Carlosaugusto222/gea/issues"
+  },
+  "homepage": "https://github.com/Carlosaugusto222/gea#readme",
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.3.1",
+    "@radix-ui/react-dialog": "^1.3.1",
+    "@radix-ui/react-slot": "^1.5.0",
+    "@radix-ui/react-tabs": "^1.2.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.64.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.19",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}
