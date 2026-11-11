@@ -1,14 +1,14 @@
 import React from "react";
 import { Mic, Newspaper, Palette, Heart, Users2, Sparkles } from "lucide-react";
 
-export const InsideSchoolSection: React.FC = () => {
+export const InsideSchoolSection: React.FC = React.memo(() => {
   const experiences = [
     {
       title: "GEA Voice — O Podcast dos Alunos",
       category: "Projeto de Conversação",
       description:
         "Os alunos criam pautas, entrevistam convidados e debatem temas reais no microfone. Isso gera protagonismo e elimina completamente o nervosismo de falar em público.",
-      image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=640&q=75&fm=webp",
       imageAlt: "Alunos com fones gravando podcast em estúdio da escola",
       icon: Mic,
       size: "lg:col-span-8",
@@ -18,7 +18,7 @@ export const InsideSchoolSection: React.FC = () => {
       category: "Estrutura",
       description:
         "Salas dinâmicas com mesas modulares, cantinho de leitura, materiais táteis e ambientes pensados para cada idade, longe do modelo cinzento tradicional.",
-      image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=640&q=75&fm=webp",
       imageAlt: "Sala de aula acolhedora, iluminada e colorida",
       icon: Heart,
       size: "lg:col-span-4",
@@ -28,7 +28,7 @@ export const InsideSchoolSection: React.FC = () => {
       category: "Produção Textual & Mídia",
       description:
         "Jovens e crianças escrevem pequenas matérias, tirinhas e resenhas em inglês e espanhol, transformando a escrita em algo vibrante e lido por toda a comunidade.",
-      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=640&q=75&fm=webp",
       imageAlt: "Estudantes redigindo e desenhando jornal da escola",
       icon: Newspaper,
       size: "lg:col-span-4",
@@ -38,7 +38,7 @@ export const InsideSchoolSection: React.FC = () => {
       category: "Vivência Internacional",
       description:
         "Festivais de gastronomia dos países hispânicos e anglo-saxões, apresentações de música, teatro e cinema onde toda a comunidade escolar participa imersa na língua.",
-      image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=640&q=75&fm=webp",
       imageAlt: "Feira cultural comunitária com alunos e famílias",
       icon: Palette,
       size: "lg:col-span-4",
@@ -48,7 +48,7 @@ export const InsideSchoolSection: React.FC = () => {
       category: "Equipe Pedagógica",
       description:
         "Educadores apaixonados, fluentes e continuamente capacitados em metodologia comunicativa ativa. Mais do que passar conteúdo, eles acolhem e celebram cada vitória do aluno.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=640&q=75&fm=webp",
       imageAlt: "Professora sorridente orientando atenciosamente aluna",
       icon: Users2,
       size: "lg:col-span-4",
@@ -88,7 +88,10 @@ export const InsideSchoolSection: React.FC = () => {
                     src={item.image}
                     alt={item.imageAlt}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    width={640}
+                    height={360}
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   
@@ -125,4 +128,5 @@ export const InsideSchoolSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+InsideSchoolSection.displayName = "InsideSchoolSection";

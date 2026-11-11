@@ -3,7 +3,7 @@ import { Send, MessageSquareCheck, Sparkles, CheckCircle2, ArrowRight } from "lu
 import { Button } from "./ui/button";
 import { trackConversionEvent } from "@/lib/analytics";
 
-export const EnrollmentSteps: React.FC = () => {
+export const EnrollmentSteps: React.FC = React.memo(() => {
   const steps = [
     {
       step: "01",
@@ -120,4 +120,5 @@ export const EnrollmentSteps: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+EnrollmentSteps.displayName = "EnrollmentSteps";

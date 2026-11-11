@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { trackConversionEvent } from "@/lib/analytics";
 import {
@@ -42,7 +41,7 @@ export const coursesData: CourseData[] = [
     ],
     schedule: "2x na semana • 45 min",
     format: "Presencial • Máx. 6 a 8 crianças",
-    image: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=600&q=75&fm=webp",
     imageAlt: "Crianças em roda com professora em atividade lúdica de idioma",
   },
   {
@@ -61,7 +60,7 @@ export const coursesData: CourseData[] = [
     ],
     schedule: "2x na semana • 60 min",
     format: "Presencial • Turmas até 8 alunos",
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=75&fm=webp",
     imageAlt: "Alunos infantis sorridentes em mesa de trabalho criativo",
   },
   {
@@ -80,7 +79,7 @@ export const coursesData: CourseData[] = [
     ],
     schedule: "2x na semana • 75 min",
     format: "Presencial • Turmas até 10 alunos",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=75&fm=webp",
     imageAlt: "Jovens estudantes participando de dinâmica de aprendizado",
   },
   {
@@ -99,7 +98,7 @@ export const coursesData: CourseData[] = [
     ],
     schedule: "2x na semana • 75 min ou Sábados 2h30",
     format: "Presencial • Turmas até 10 alunos",
-    image: "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=600&q=75&fm=webp",
     imageAlt: "Adolescentes conversando e estudando juntos em ambiente moderno",
   },
   {
@@ -118,7 +117,7 @@ export const coursesData: CourseData[] = [
     ],
     schedule: "2x na semana • 75 min ou Sábados intensivo",
     format: "Presencial • Turmas reduzidas",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=75&fm=webp",
     imageAlt: "Adultos em conversa descontraída de negócios e idiomas",
   },
   {
@@ -137,7 +136,7 @@ export const coursesData: CourseData[] = [
     ],
     schedule: "2x na semana • 60 min ou 1x intensivo",
     format: "Presencial • Turmas reduzidas",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=75&fm=webp",
     imageAlt: "Grupo multicultural praticando conversação em espanhol",
   },
 ];
@@ -146,7 +145,7 @@ interface CoursesSectionProps {
   onSelectCourse?: (courseId: string) => void;
 }
 
-export const CoursesSection: React.FC<CoursesSectionProps> = ({ onSelectCourse }) => {
+export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSelectCourse }) => {
   const [activeTab, setActiveTab] = useState<string>("todos");
 
   const filteredCourses =
@@ -231,7 +230,10 @@ export const CoursesSection: React.FC<CoursesSectionProps> = ({ onSelectCourse }
                   src={course.image}
                   alt={course.imageAlt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  width={480}
+                  height={300}
                   loading="lazy"
+                  decoding="async"
                 />
                 
                 {/* Age Badge Floating */}
@@ -329,4 +331,5 @@ export const CoursesSection: React.FC<CoursesSectionProps> = ({ onSelectCourse }
       </div>
     </section>
   );
-};
+});
+CoursesSection.displayName = "CoursesSection";

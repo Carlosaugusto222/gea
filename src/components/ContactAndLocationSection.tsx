@@ -7,9 +7,7 @@ import {
   MessageCircle,
   Coffee,
   CheckCircle2,
-  Calendar,
   Sparkles,
-  ArrowRight,
   ShieldCheck,
   Send,
 } from "lucide-react";

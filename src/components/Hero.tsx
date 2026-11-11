@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
 import { trackConversionEvent, getWhatsAppUrl } from "@/lib/analytics";
 import {
   Sparkles,
@@ -11,7 +10,7 @@ import {
   Award,
 } from "lucide-react";
 
-export const Hero: React.FC = () => {
+export const Hero: React.FC = React.memo(() => {
   const handlePrimaryCta = () => {
     trackConversionEvent("click_cta_hero_primary", { section: "hero" });
     const formEl = document.getElementById("formulario");
@@ -123,10 +122,14 @@ export const Hero: React.FC = () => {
                 <div className="relative aspect-[4/3.8] bg-gea-navy/5 overflow-hidden">
                   {/* High quality natural classroom interaction image */}
                   <img
-                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80"
+                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=75&fm=webp"
                     alt="Alunos e professora interagindo alegremente em sala de aula de idiomas"
                     className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                    width={600}
+                    height={570}
                     loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                   
                   {/* Subtle Gradient Overlay */}
@@ -204,4 +207,5 @@ export const Hero: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+Hero.displayName = "Hero";

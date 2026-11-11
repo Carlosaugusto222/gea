@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { trackConversionEvent } from "@/lib/analytics";
 import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 
-export const Navbar: React.FC = () => {
+export const Navbar: React.FC = React.memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -185,4 +185,5 @@ export const Navbar: React.FC = () => {
       )}
     </header>
   );
-};
+});
+Navbar.displayName = "Navbar";

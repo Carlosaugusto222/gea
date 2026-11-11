@@ -9,7 +9,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-export const DifferentialsSection: React.FC = () => {
+export const DifferentialsSection: React.FC = React.memo(() => {
   const differentials = [
     {
       icon: MessageCircle,
@@ -113,4 +113,5 @@ export const DifferentialsSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+DifferentialsSection.displayName = "DifferentialsSection";

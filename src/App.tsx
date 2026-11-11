@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { CoursesSection } from "./components/CoursesSection";
@@ -11,7 +11,10 @@ import { FaqSection } from "./components/FaqSection";
 import { ContactAndLocationSection } from "./components/ContactAndLocationSection";
 import { Footer } from "./components/Footer";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
-import { NotFound } from "./components/NotFound";
+
+const NotFound = React.lazy(() =>
+  import("./components/NotFound").then((m) => ({ default: m.NotFound }))
+);
 
 export function App() {
   const [selectedAgeGroup, setSelectedAgeGroup] = useState<string>("kids");
@@ -27,9 +30,9 @@ export function App() {
     return () => window.removeEventListener("popstate", handleLocationChange);
   }, []);
 
-  const handleSelectCourse = (courseId: string) => {
+  const handleSelectCourse = useCallback((courseId: string) => {
     setSelectedAgeGroup(courseId);
-  };
+  }, []);
 
   const normalizedPath = currentPath.replace(/\/+$/, "") || "/";
   const isHome =
@@ -40,13 +43,15 @@ export function App() {
 
   if (!isHome) {
     return (
-      <NotFound
-        onGoHome={() => {
-          window.history.pushState({}, "", "/");
-          setCurrentPath("/");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
-      />
+      <Suspense fallback={<div className="min-h-screen bg-gea-slate-50" />}>
+        <NotFound
+          onGoHome={() => {
+            window.history.pushState({}, "", "/");
+            setCurrentPath("/");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        />
+      </Suspense>
     );
   }
 

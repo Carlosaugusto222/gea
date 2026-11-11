@@ -5,7 +5,7 @@ interface LogoProps {
   isLight?: boolean;
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = "h-9", isLight = false }) => {
+export const Logo: React.FC<LogoProps> = React.memo(({ className = "h-9", isLight = false }) => {
   return (
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
       {/* Visual Emblem */}
@@ -65,4 +65,5 @@ export const Logo: React.FC<LogoProps> = ({ className = "h-9", isLight = false }
       </div>
     </div>
   );
-};
+});
+Logo.displayName = "Logo";

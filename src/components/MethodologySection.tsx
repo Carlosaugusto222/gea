@@ -1,7 +1,7 @@
 import React from "react";
 import { Headphones, MessageSquare, BookOpen, PenTool, Award, ShieldCheck, Compass, Check } from "lucide-react";
 
-export const MethodologySection: React.FC = () => {
+export const MethodologySection: React.FC = React.memo(() => {
   const skills = [
     {
       icon: Headphones,
@@ -165,4 +165,5 @@ export const MethodologySection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+MethodologySection.displayName = "MethodologySection";

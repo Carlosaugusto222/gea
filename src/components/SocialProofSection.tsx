@@ -1,13 +1,13 @@
 import React from "react";
 import { Star, Quote, Heart } from "lucide-react";
 
-export const SocialProofSection: React.FC = () => {
+export const SocialProofSection: React.FC = React.memo(() => {
   const testimonials = [
     {
       author: "Juliana Mendes",
       role: "Mãe do Lucas (7 anos, GEA Kids)",
       badge: "2 anos na GEA",
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=face&w=96&h=96&q=75&fm=webp",
       content:
         "O Lucas era muito tímido para falar qualquer palavra em inglês em outra escola. Na GEA, o acolhimento da professora fez toda a diferença. Ele chega em casa cantando as músicas, me pede para assistir desenhos em inglês e perdeu totalmente o medo de tentar.",
       rating: 5,
@@ -16,7 +16,7 @@ export const SocialProofSection: React.FC = () => {
       author: "Rodrigo Silveira",
       role: "Aluno GEA Adultos (Engenheiro de Software)",
       badge: "1 ano e meio na GEA",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&crop=face&w=96&h=96&q=75&fm=webp",
       content:
         "Eu lia bem em inglês, mas travava na hora de abrir a boca nas reuniões com o time internacional. As aulas práticas e as simulações na GEA me deram a segurança que eu precisava. Sem mágicas: foi consistência semana a semana com professores pacientes.",
       rating: 5,
@@ -25,7 +25,7 @@ export const SocialProofSection: React.FC = () => {
       author: "Carla & Marcos Ferreira",
       role: "Pais da Sofia (14 anos, GEA Teens)",
       badge: "3 anos na GEA",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&crop=face&w=96&h=96&q=75&fm=webp",
       content:
         "O que mais nos encanta na GEA é a transparência. A coordenação sempre nos dá feedback sincero da evolução da Sofia. No mês passado, viajamos para fora e ela pediu a comida no restaurante e conversou no hotel com total autonomia!",
       rating: 5,
@@ -34,7 +34,7 @@ export const SocialProofSection: React.FC = () => {
       author: "Felipe Taniguchi",
       role: "Aluno Espanhol & Conversação",
       badge: "10 meses na GEA",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&crop=face&w=96&h=96&q=75&fm=webp",
       content:
         "Estudo espanhol para o trabalho com clientes da América Latina. O curso foca muito na fala do dia a dia e nas particularidades culturais, em vez de só decorar regras. O ambiente em sala é super leve e colaborativo.",
       rating: 5,
@@ -94,7 +94,10 @@ export const SocialProofSection: React.FC = () => {
                   src={item.avatar}
                   alt={item.author}
                   className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-xs shrink-0"
+                  width={48}
+                  height={48}
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
@@ -158,4 +161,5 @@ export const SocialProofSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+SocialProofSection.displayName = "SocialProofSection";

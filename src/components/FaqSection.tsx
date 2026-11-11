@@ -8,7 +8,7 @@ import {
 import { HelpCircle, MessageCircle } from "lucide-react";
 import { trackConversionEvent, getWhatsAppUrl } from "@/lib/analytics";
 
-export const FaqSection: React.FC = () => {
+export const FaqSection: React.FC = React.memo(() => {
   const faqs = [
     {
       id: "faq-1",
@@ -125,4 +125,5 @@ export const FaqSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+FaqSection.displayName = "FaqSection";

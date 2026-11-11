@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://x-access-token:ghs_4898426_eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRobmQiLCJjdHgiOiIzQUotOFBYZ214V3BXMjZ4Y0dVZEpzLTNJLUpUd0JHekxuOE4zTVVQNnFqYUprMEE1eHZMVElsSENBIiwiZXhwIjoxNzkzMzI3Nzk3LCJpYXQiOjE3OTMzMjQxOTcsImlzcyI6ImdpdGh1YiIsImp0aSI6IjBlMTg3MTFjLTFmY2EtNDQ3YS1iMzYzLTZjZDhkNjRkODYzZiIsInZlciI6M30.49btF49QIbRd8V_gsVbSFF8bj2ELuCDcEgrHPorBPJgmabZEIUcgo-La5PgKcDa9A1iBABUsVqAVcSEaYkEIpg@github.com/Carlosaugusto222/gea.git"
+    "url": "git+https://github.com/Carlosaugusto222/gea.git"
   },
   "keywords": [],
   "author": "",
@@ -22,9 +22,7 @@
   "homepage": "https://github.com/Carlosaugusto222/gea#readme",
   "dependencies": {
     "@radix-ui/react-accordion": "^1.3.1",
-    "@radix-ui/react-dialog": "^1.3.1",
     "@radix-ui/react-slot": "^1.5.0",
-    "@radix-ui/react-tabs": "^1.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.64.0",

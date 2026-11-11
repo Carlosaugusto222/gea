@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { trackConversionEvent, getWhatsAppUrl } from "@/lib/analytics";
 
-export const FloatingWhatsApp: React.FC = () => {
+export const FloatingWhatsApp: React.FC = React.memo(() => {
   const [showTooltip, setShowTooltip] = useState(true);
 
   const handleClick = () => {
@@ -52,4 +52,5 @@ export const FloatingWhatsApp: React.FC = () => {
       </button>
     </div>
   );
-};
+});
+FloatingWhatsApp.displayName = "FloatingWhatsApp";

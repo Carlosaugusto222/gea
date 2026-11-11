@@ -4,7 +4,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Heart,
   ArrowUp,
 } from "lucide-react";
 import { GEA_ADDRESS, GEA_PHONE_FORMATTED, GEA_PHONE_RAW } from "@/lib/analytics";
@@ -36,7 +35,7 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }
   </svg>
 );
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC = React.memo(() => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -186,4 +185,5 @@ export const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+});
+Footer.displayName = "Footer";
