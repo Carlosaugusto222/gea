@@ -56,6 +56,7 @@ export const Hero: React.FC = React.memo(() => {
                   preserveAspectRatio="none"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
                   <path
                     d="M3 9C28 3 70 3 97 8"

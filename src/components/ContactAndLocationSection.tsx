@@ -179,9 +179,9 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                   <MapPin className="w-5 h-5 text-gea-navy" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-0.5">
+                  <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-0.5">
                     Endereço da Unidade
-                  </h4>
+                  </h3>
                   <p className="text-sm text-white/80 leading-snug">
                     {GEA_ADDRESS}
                   </p>
@@ -196,9 +196,9 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                   <Clock className="w-5 h-5 text-white/90" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-0.5">
+                  <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-0.5">
                     Horário da Secretaria
-                  </h4>
+                  </h3>
                   <p className="text-sm text-white/80">
                     Segunda a Sexta: 08h às 20h30 <br />
                     Sábados: 08h às 14h
@@ -211,9 +211,9 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                   <Phone className="w-5 h-5 text-white/90" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-0.5">
+                  <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-0.5">
                     Telefone & Atendimento
-                  </h4>
+                  </h3>
                   <p className="text-sm text-white/80 font-mono">
                     {GEA_PHONE_FORMATTED}
                   </p>

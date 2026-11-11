@@ -11,6 +11,7 @@ import { FaqSection } from "./components/FaqSection";
 import { ContactAndLocationSection } from "./components/ContactAndLocationSection";
 import { Footer } from "./components/Footer";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
+import { Seo } from "./components/Seo";
 
 const NotFound = React.lazy(() =>
   import("./components/NotFound").then((m) => ({ default: m.NotFound }))
@@ -57,6 +58,11 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gea-slate-50 font-sans selection:bg-gea-yellow selection:text-gea-navy">
+      <Seo
+        title="GEA Idiomas | Inglês e Espanhol com Foco em Conversação"
+        description="Aprenda inglês e espanhol na GEA Idiomas com foco em conversação, turmas reduzidas e vivências reais do Baby aos Adultos. Agende já sua aula experimental!"
+        canonical="https://geaidiomas.com.br/"
+      />
       <Navbar />
       <main className="flex-1">
         <Hero />

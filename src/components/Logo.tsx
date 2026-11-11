@@ -16,6 +16,7 @@ export const Logo: React.FC<LogoProps> = React.memo(({ className = "h-9", isLigh
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-7 h-7"
+          aria-hidden="true"
         >
           {/* Yellow spark / sun of knowledge */}
           <circle cx="27" cy="9" r="3.5" fill="#F5B800" />

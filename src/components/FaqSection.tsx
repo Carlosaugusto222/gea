@@ -106,9 +106,9 @@ export const FaqSection: React.FC = React.memo(() => {
         {/* Unresolved doubt prompt */}
         <div className="p-6 rounded-2xl bg-white border border-gea-slate-200 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
-            <h4 className="text-sm sm:text-base font-bold text-gea-navy">
+            <h3 className="text-sm sm:text-base font-bold text-gea-navy">
               Tem alguma dúvida específica que não está aqui?
-            </h4>
+            </h3>
             <p className="text-xs text-gea-slate-500">
               Converse diretamente com a equipe de atendimento da GEA em tempo real.
             </p>

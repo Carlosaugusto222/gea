@@ -92,7 +92,7 @@ export const SocialProofSection: React.FC = React.memo(() => {
               <div className="flex items-center gap-4 pt-4 border-t border-gea-slate-200/70">
                 <img
                   src={item.avatar}
-                  alt={item.author}
+                  alt={`Foto de ${item.author}, ${item.role}`}
                   className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-xs shrink-0"
                   width={48}
                   height={48}

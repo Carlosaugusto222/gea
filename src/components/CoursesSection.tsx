@@ -307,9 +307,9 @@ export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSel
         {/* Bottom Banner Note */}
         <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-gea-slate-50 via-white to-gea-slate-50 border border-gea-slate-200 text-center max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="text-left">
-            <h4 className="text-base sm:text-lg font-bold text-gea-navy mb-1">
+            <h3 className="text-base sm:text-lg font-bold text-gea-navy mb-1">
               Ficou em dúvida sobre qual turma melhor se adapta ao seu caso?
-            </h4>
+            </h3>
             <p className="text-xs sm:text-sm text-gea-slate-600">
               Nossa coordenação pedagógica faz uma conversa sem compromisso para indicar a melhor opção.
             </p>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Logo } from "./Logo";
 import { Button } from "./ui/button";
+import { Seo } from "./Seo";
 import { getWhatsAppUrl } from "@/lib/analytics";
 import { Home, MessageCircle, AlertCircle } from "lucide-react";
 
@@ -26,6 +27,12 @@ export const NotFound: React.FC<NotFoundProps> = ({ onGoHome }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gea-slate-50 text-gea-navy font-sans">
+      <Seo
+        title="Página Não Encontrada | Erro 404 | Escola GEA Idiomas"
+        description="A página que você buscou não foi encontrada no site da GEA Idiomas. Volte para a página inicial e confira nossos cursos de inglês e espanhol para todas idades."
+        canonical="https://geaidiomas.com.br/404"
+        noindex
+      />
       {/* Header */}
       <header className="bg-white/90 backdrop-blur-sm border-b border-gea-slate-200/80 py-4 px-6">
         <div className="container mx-auto max-w-7xl flex items-center justify-between">
