@@ -39,7 +39,7 @@ export const NotFound: React.FC<NotFoundProps> = ({ onGoHome }) => {
           <a
             href="/"
             onClick={handleHomeClick}
-            className="focus:outline-none focus:ring-2 focus:ring-gea-navy rounded-lg p-0.5"
+            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy rounded-lg p-1 min-h-[44px] min-w-[44px] flex items-center"
             aria-label="GEA Idiomas - Início"
           >
             <Logo />
@@ -50,7 +50,7 @@ export const NotFound: React.FC<NotFoundProps> = ({ onGoHome }) => {
             onClick={handleWhatsAppHelp}
             className="gap-2 text-xs font-bold text-gea-navy"
           >
-            <MessageCircle className="w-4 h-4 text-emerald-600" />
+            <MessageCircle className="w-4 h-4 text-emerald-700" aria-hidden="true" />
             <span className="hidden sm:inline">Ajuda pelo WhatsApp</span>
           </Button>
         </div>
@@ -60,7 +60,7 @@ export const NotFound: React.FC<NotFoundProps> = ({ onGoHome }) => {
       <main className="flex-1 flex items-center justify-center px-4 py-16">
         <div className="max-w-md w-full text-center bg-white rounded-3xl p-8 sm:p-10 shadow-xl border border-gea-slate-200 animate-in fade-in duration-300">
           <div className="w-20 h-20 rounded-2xl bg-gea-red/10 text-gea-red flex items-center justify-center mx-auto mb-6">
-            <AlertCircle className="w-10 h-10" />
+            <AlertCircle className="w-10 h-10" aria-hidden="true" />
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gea-navy/10 text-gea-navy font-extrabold text-xs uppercase tracking-wider mb-3">
@@ -79,14 +79,14 @@ export const NotFound: React.FC<NotFoundProps> = ({ onGoHome }) => {
             <a
               href="/"
               onClick={handleHomeClick}
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy rounded-xl"
             >
               <Button
                 variant="primaryRed"
                 size="default"
                 className="w-full gap-2 font-bold shadow-md"
               >
-                <Home className="w-4 h-4" />
+                <Home className="w-4 h-4" aria-hidden="true" />
                 <span>Voltar ao início</span>
               </Button>
             </a>
@@ -97,7 +97,7 @@ export const NotFound: React.FC<NotFoundProps> = ({ onGoHome }) => {
               onClick={handleWhatsAppHelp}
               className="w-full sm:w-auto gap-2 font-bold"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-600" />
+              <MessageCircle className="w-4 h-4 text-emerald-700" aria-hidden="true" />
               <span>Falar no WhatsApp</span>
             </Button>
           </div>
@@ -105,7 +105,7 @@ export const NotFound: React.FC<NotFoundProps> = ({ onGoHome }) => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gea-slate-200 py-6 text-center text-xs text-gea-slate-500">
+      <footer className="bg-white border-t border-gea-slate-200 py-6 text-center text-xs text-gea-slate-600">
         © {new Date().getFullYear()} GEA Idiomas. Todos os direitos reservados.
       </footer>
     </div>

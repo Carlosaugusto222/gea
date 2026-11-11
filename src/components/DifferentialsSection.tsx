@@ -62,7 +62,7 @@ export const DifferentialsSection: React.FC = React.memo(() => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gea-navy/10 text-gea-navy font-bold text-xs uppercase tracking-wider mb-3">
-            <CheckCircle2 className="w-3.5 h-3.5 text-gea-red" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-gea-red" aria-hidden="true" />
             <span>Nossos Diferenciais</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gea-navy tracking-tight mb-4">
@@ -74,20 +74,20 @@ export const DifferentialsSection: React.FC = React.memo(() => {
         </div>
 
         {/* 6 Grid Blocks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" aria-label="Diferenciais da GEA">
           {differentials.map((item) => {
             const Icon = item.icon;
             return (
-              <div
+              <li
                 key={item.title}
                 className="group p-8 rounded-2xl bg-gea-slate-50 border border-gea-slate-200/80 hover:bg-white hover:border-gea-navy/30 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
                     <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-gea-slate-200 flex items-center justify-center text-gea-navy group-hover:bg-gea-navy group-hover:text-white transition-colors duration-300">
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-6 h-6" aria-hidden="true" />
                     </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-gea-red bg-gea-red/10 px-2.5 py-1 rounded-full">
+                    <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 border border-red-200/60 px-2.5 py-1 rounded-full">
                       {item.badge}
                     </span>
                   </div>
@@ -101,14 +101,14 @@ export const DifferentialsSection: React.FC = React.memo(() => {
                   </p>
                 </div>
 
-                <div className="pt-5 mt-6 border-t border-gea-slate-200/70 text-xs font-semibold text-gea-slate-500 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gea-yellow" />
+                <div className="pt-5 mt-6 border-t border-gea-slate-200/70 text-xs font-semibold text-gea-slate-600 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gea-yellow" aria-hidden="true" />
                   <span>Compromisso pedagógico GEA</span>
                 </div>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
       </div>
     </section>

@@ -58,13 +58,20 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gea-slate-50 font-sans selection:bg-gea-yellow selection:text-gea-navy">
+      {/* Skip to main content link for keyboard and screen reader accessibility */}
+      <a
+        href="#conteudo-principal"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2.5 focus:bg-gea-navy focus:text-white focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-4 focus:ring-gea-yellow focus:font-bold text-sm"
+      >
+        Pular para o conteúdo principal
+      </a>
       <Seo
         title="GEA Idiomas | Inglês e Espanhol com Foco em Conversação"
         description="Aprenda inglês e espanhol na GEA Idiomas com foco em conversação, turmas reduzidas e vivências reais do Baby aos Adultos. Agende já sua aula experimental!"
         canonical="https://geaidiomas.com.br/"
       />
       <Navbar />
-      <main className="flex-1">
+      <main id="conteudo-principal" tabIndex={-1} className="flex-1 focus:outline-none">
         <Hero />
         <CoursesSection onSelectCourse={handleSelectCourse} />
         <MethodologySection />

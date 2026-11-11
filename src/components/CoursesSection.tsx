@@ -148,6 +148,37 @@ interface CoursesSectionProps {
 export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSelectCourse }) => {
   const [activeTab, setActiveTab] = useState<string>("todos");
 
+  const tabList = [
+    { id: "todos", label: "Todos os Cursos" },
+    { id: "infantil", label: "Baby & Kids (1-9 anos)" },
+    { id: "jovens", label: "Preteen & Teens (10-17 anos)" },
+    { id: "adultos", label: "Adultos (18+)" },
+    { id: "espanhol", label: "Espanhol & Conversação" },
+  ];
+
+  const handleTabKeyDown = (e: React.KeyboardEvent, index: number) => {
+    let newIndex = index;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      newIndex = (index + 1) % tabList.length;
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      newIndex = (index - 1 + tabList.length) % tabList.length;
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      newIndex = 0;
+    } else if (e.key === "End") {
+      e.preventDefault();
+      newIndex = tabList.length - 1;
+    } else {
+      return;
+    }
+
+    setActiveTab(tabList[newIndex].id);
+    const targetTab = document.getElementById(`tab-${tabList[newIndex].id}`);
+    targetTab?.focus();
+  };
+
   const filteredCourses =
     activeTab === "todos"
       ? coursesData
@@ -183,7 +214,7 @@ export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSel
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gea-navy/10 text-gea-navy font-bold text-xs uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-gea-red" />
+            <Sparkles className="w-3.5 h-3.5 text-gea-red" aria-hidden="true" />
             <span>Nossos Cursos</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gea-navy tracking-tight mb-4">
@@ -193,22 +224,26 @@ export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSel
             Nosso ensino respeita a maturidade cognitiva, os interesses e os objetivos de cada faixa etária. Aqui, o aluno não é pressionado: ele é guiado com respeito e encorajamento.
           </p>
 
-          {/* Interactive Filter Pills */}
-          <div className="flex items-center justify-center flex-wrap gap-2 mt-8">
-            {[
-              { id: "todos", label: "Todos os Cursos" },
-              { id: "infantil", label: "Baby & Kids (1-9 anos)" },
-              { id: "jovens", label: "Preteen & Teens (10-17 anos)" },
-              { id: "adultos", label: "Adultos (18+)" },
-              { id: "espanhol", label: "Espanhol & Conversação" },
-            ].map((tab) => (
+          {/* Interactive Filter Pills (Tablist accessible with Tab, Arrows, Home, End, Enter/Space) */}
+          <div
+            role="tablist"
+            aria-label="Filtrar cursos por faixa etária"
+            className="flex items-center justify-center flex-wrap gap-2 mt-8"
+          >
+            {tabList.map((tab, idx) => (
               <button
                 key={tab.id}
+                id={`tab-${tab.id}`}
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                aria-controls="painel-cursos"
+                tabIndex={activeTab === tab.id ? 0 : -1}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 ${
+                onKeyDown={(e) => handleTabKeyDown(e, idx)}
+                className={`px-4 py-2 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy focus-visible:ring-offset-2 ${
                   activeTab === tab.id
                     ? "bg-gea-navy text-white shadow-md scale-[1.02]"
-                    : "bg-gea-slate-100 text-gea-slate-600 hover:bg-gea-slate-200"
+                    : "bg-gea-slate-100 text-gea-slate-700 hover:bg-gea-slate-200"
                 }`}
               >
                 {tab.label}
@@ -218,9 +253,15 @@ export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSel
         </div>
 
         {/* Courses Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div
+          role="tabpanel"
+          id="painel-cursos"
+          aria-labelledby={`tab-${activeTab}`}
+          tabIndex={0}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 focus:outline-none"
+        >
           {filteredCourses.map((course) => (
-            <div
+            <article
               key={course.id}
               className="group bg-white rounded-2xl border border-gea-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1"
             >
@@ -267,23 +308,23 @@ export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSel
                 </p>
 
                 {/* Highlights List */}
-                <div className="space-y-2 mb-6">
+                <ul className="space-y-2 mb-6" aria-label={`Destaques do curso ${course.name}`}>
                   {course.highlights.map((item, idx) => (
-                    <div key={`${course.id}-highlight-${idx}`} className="flex items-start gap-2 text-xs text-gea-slate-700">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <li key={`${course.id}-highlight-${idx}`} className="flex items-start gap-2 text-xs text-gea-slate-700">
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" aria-hidden="true" />
                       <span>{item}</span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
                 {/* Meta Details: Schedule and Format */}
-                <div className="mt-auto pt-4 border-t border-gea-slate-100 space-y-2 text-xs text-gea-slate-500">
+                <div className="mt-auto pt-4 border-t border-gea-slate-100 space-y-2 text-xs text-gea-slate-600">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-3.5 h-3.5 text-gea-navy/70" />
+                    <Clock className="w-3.5 h-3.5 text-gea-navy/70" aria-hidden="true" />
                     <span>{course.schedule}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Users className="w-3.5 h-3.5 text-gea-navy/70" />
+                    <Users className="w-3.5 h-3.5 text-gea-navy/70" aria-hidden="true" />
                     <span>{course.format}</span>
                   </div>
                 </div>
@@ -292,15 +333,16 @@ export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSel
                 <div className="mt-5">
                   <button
                     onClick={() => handleConsultCourse(course)}
-                    className="w-full tap-target py-3 px-4 rounded-xl bg-gea-slate-100 hover:bg-gea-red hover:text-white text-gea-navy text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 group/btn"
+                    aria-label={`Consultar horários para o curso ${course.name}`}
+                    className="w-full tap-target py-3 px-4 min-h-[44px] rounded-xl bg-gea-slate-100 hover:bg-gea-red hover:text-white text-gea-navy text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 group/btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy focus-visible:ring-offset-2"
                   >
                     <span>Consultar horários para esta faixa etária</span>
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
                   </button>
                 </div>
 
               </div>
-            </div>
+            </article>
           ))}
         </div>
 

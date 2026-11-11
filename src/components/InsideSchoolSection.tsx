@@ -62,7 +62,7 @@ export const InsideSchoolSection: React.FC = React.memo(() => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gea-navy/10 text-gea-navy font-bold text-xs uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-gea-yellow" />
+            <Sparkles className="w-3.5 h-3.5 text-gea-red" aria-hidden="true" />
             <span>Vivência Real</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gea-navy tracking-tight mb-4">
@@ -74,11 +74,11 @@ export const InsideSchoolSection: React.FC = React.memo(() => {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <ul className="grid grid-cols-1 lg:grid-cols-12 gap-6" aria-label="Vivências da escola">
           {experiences.map((item) => {
             const Icon = item.icon;
             return (
-              <div
+              <li
                 key={item.title}
                 className={`${item.size} group relative bg-white rounded-3xl overflow-hidden border border-gea-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col`}
               >
@@ -98,13 +98,13 @@ export const InsideSchoolSection: React.FC = React.memo(() => {
                   {/* Category Pill */}
                   <div className="absolute top-4 left-4">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-gea-navy text-xs font-bold shadow-sm">
-                      <Icon className="w-3.5 h-3.5 text-gea-red" />
+                      <Icon className="w-3.5 h-3.5 text-gea-red" aria-hidden="true" />
                       {item.category}
                     </span>
                   </div>
 
                   {/* Placeholder label */}
-                  <div className="absolute bottom-3 right-4 text-[10px] text-white/80 font-mono bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">
+                  <div className="absolute bottom-3 right-4 text-xs text-white/90 font-mono bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm" aria-hidden="true">
                     [Inserir foto real autorizada da GEA]
                   </div>
                 </div>
@@ -120,10 +120,10 @@ export const InsideSchoolSection: React.FC = React.memo(() => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
       </div>
     </section>

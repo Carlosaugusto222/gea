@@ -41,7 +41,7 @@ export const Hero: React.FC = React.memo(() => {
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FEF3C7] border border-[#FDE68A] text-[#92400E] text-xs sm:text-sm font-bold mb-6 shadow-xs animate-in fade-in duration-300">
-              <Sparkles className="w-4 h-4 text-[#D97706] shrink-0" />
+              <Sparkles className="w-4 h-4 text-[#B45309] shrink-0" aria-hidden="true" />
               <span>Matrículas abertas • Inglês e Espanhol para todas as idades</span>
             </div>
 
@@ -82,7 +82,7 @@ export const Hero: React.FC = React.memo(() => {
                 onClick={handlePrimaryCta}
                 className="tap-target gap-2 text-base font-extrabold shadow-lg shadow-gea-red/25 hover:shadow-gea-red/40 transition-all"
               >
-                <CalendarCheck className="w-5 h-5 text-gea-yellow" />
+                <CalendarCheck className="w-5 h-5 text-amber-200" aria-hidden="true" />
                 <span>Agendar aula experimental</span>
               </Button>
 
@@ -92,7 +92,7 @@ export const Hero: React.FC = React.memo(() => {
                 onClick={handleWhatsappCta}
                 className="tap-target gap-2 text-base font-bold transition-all border-gea-navy/80"
               >
-                <MessageCircle className="w-5 h-5 text-emerald-600" />
+                <MessageCircle className="w-5 h-5 text-emerald-700" aria-hidden="true" />
                 <span>Falar com a equipe</span>
               </Button>
             </div>
@@ -100,15 +100,15 @@ export const Hero: React.FC = React.memo(() => {
             {/* Trust Indicators */}
             <div className="pt-4 border-t border-gea-slate-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-y-3 gap-x-6 text-xs sm:text-sm text-gea-slate-600">
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" aria-hidden="true" />
                 <span>Acompanhamento real com as famílias</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" aria-hidden="true" />
                 <span>Turmas pequenas (máx. 8 a 10)</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" aria-hidden="true" />
                 <span>Alinhamento internacional (CEFR)</span>
               </div>
             </div>
@@ -140,10 +140,10 @@ export const Hero: React.FC = React.memo(() => {
                   <div className="absolute bottom-3 left-3 right-3 p-3 rounded-2xl bg-white/95 backdrop-blur-md border border-white/40 shadow-sm text-left">
                     <div className="flex items-center justify-between text-xs font-semibold text-gea-navy mb-0.5">
                       <span className="flex items-center gap-1 text-gea-red font-bold">
-                        <Award className="w-3.5 h-3.5 text-gea-red" />
+                        <Award className="w-3.5 h-3.5 text-gea-red" aria-hidden="true" />
                         Ambiente Real GEA
                       </span>
-                      <span className="text-[10px] text-gea-slate-400 font-normal">
+                      <span className="text-xs text-gea-slate-600 font-normal">
                         [Inserir foto real autorizada da GEA]
                       </span>
                     </div>
@@ -157,13 +157,13 @@ export const Hero: React.FC = React.memo(() => {
               {/* Floating Confidence Badge 1: Foco em conversação */}
               <div className="absolute -top-4 -left-4 sm:-left-6 bg-white rounded-2xl p-3 sm:p-3.5 shadow-xl border border-gea-slate-100 flex items-center gap-3 animate-float">
                 <div className="w-10 h-10 rounded-xl bg-gea-yellow/25 text-[#92400E] flex items-center justify-center font-bold">
-                  <MessageCircle className="w-5 h-5 text-gea-navy" />
+                  <MessageCircle className="w-5 h-5 text-gea-navy" aria-hidden="true" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-gea-navy leading-tight">
                     Foco em conversação
                   </div>
-                  <div className="text-[11px] text-gea-slate-500">
+                  <div className="text-xs text-gea-slate-600">
                     Prática desde o 1º dia
                   </div>
                 </div>
@@ -172,13 +172,13 @@ export const Hero: React.FC = React.memo(() => {
               {/* Floating Confidence Badge 2: Acompanhamento individualizado */}
               <div className="absolute top-1/2 -right-4 sm:-right-6 bg-white rounded-2xl p-3 sm:p-3.5 shadow-xl border border-gea-slate-100 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-gea-red/10 text-gea-red flex items-center justify-center">
-                  <Users className="w-5 h-5 text-gea-red" />
+                  <Users className="w-5 h-5 text-gea-red" aria-hidden="true" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-gea-navy leading-tight">
                     Acompanhamento
                   </div>
-                  <div className="text-[11px] text-gea-slate-500">
+                  <div className="text-xs text-gea-slate-600">
                     Turmas até 10 alunos
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export const Hero: React.FC = React.memo(() => {
 
               {/* Floating Confidence Badge 3: Turmas por faixa etária */}
               <div className="hidden sm:flex absolute -bottom-5 left-8 bg-gea-navy text-white rounded-2xl p-3 shadow-xl border border-white/20 items-center gap-3">
-                <div className="flex -space-x-1">
+                <div className="flex -space-x-1" aria-hidden="true">
                   <span className="w-6 h-6 rounded-full bg-gea-red flex items-center justify-center text-[10px] font-bold">B</span>
                   <span className="w-6 h-6 rounded-full bg-gea-yellow text-gea-navy flex items-center justify-center text-[10px] font-bold">K</span>
                   <span className="w-6 h-6 rounded-full bg-white text-gea-navy flex items-center justify-center text-[10px] font-bold">T</span>
@@ -195,7 +195,7 @@ export const Hero: React.FC = React.memo(() => {
                   <div className="text-xs font-bold leading-tight">
                     Baby • Kids • Teens • Adultos
                   </div>
-                  <div className="text-[10px] text-white/70">
+                  <div className="text-xs text-white/80">
                     Metodologia respeitando cada fase
                   </div>
                 </div>

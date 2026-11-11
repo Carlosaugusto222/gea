@@ -19,15 +19,15 @@ const buttonVariants = cva(
         outlineWhite:
           "border-2 border-white text-white bg-transparent hover:bg-white hover:text-gea-navy focus-visible:ring-white",
         ghost:
-          "text-gea-navy hover:bg-gea-slate-100 hover:text-gea-navy",
+          "text-gea-navy hover:bg-gea-slate-100 hover:text-gea-navy focus-visible:ring-gea-navy",
         link:
-          "text-gea-navy underline-offset-4 hover:underline",
+          "text-gea-navy underline-offset-4 hover:underline focus-visible:ring-gea-navy rounded-sm",
       },
       size: {
-        default: "h-11 px-5 py-2.5",
-        sm: "h-9 rounded-lg px-3.5 text-xs",
-        lg: "h-12 sm:h-14 rounded-xl px-7 text-base font-bold",
-        icon: "h-11 w-11",
+        default: "min-h-[44px] h-11 px-5 py-2.5",
+        sm: "min-h-[44px] min-w-[44px] rounded-lg px-3.5 py-2 text-xs",
+        lg: "min-h-[48px] h-12 sm:h-14 rounded-xl px-7 text-base font-bold",
+        icon: "min-h-[44px] min-w-[44px] h-11 w-11",
       },
     },
     defaultVariants: {

@@ -54,7 +54,7 @@ export const EnrollmentSteps: React.FC = React.memo(() => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gea-navy/10 text-gea-navy font-bold text-xs uppercase tracking-wider mb-3">
-            <span className="w-2 h-2 rounded-full bg-gea-red" />
+            <span className="w-2 h-2 rounded-full bg-gea-red" aria-hidden="true" />
             <span>Processo Transparente</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gea-navy tracking-tight mb-4">
@@ -66,21 +66,24 @@ export const EnrollmentSteps: React.FC = React.memo(() => {
         </div>
 
         {/* Steps Timeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative mb-14">
+        <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative mb-14" aria-label="Etapas de matrícula">
           {steps.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
+              <li
                 key={item.step}
                 className="relative bg-white rounded-3xl p-7 border border-gea-slate-200/90 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Step Number Badge */}
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-gea-navy text-white flex items-center justify-center font-extrabold text-lg shadow-sm">
+                  <div
+                    className="w-12 h-12 rounded-2xl bg-gea-navy text-white flex items-center justify-center font-extrabold text-lg shadow-sm"
+                    aria-hidden="true"
+                  >
                     {item.step}
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-gea-slate-100 flex items-center justify-center text-gea-slate-500">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-full bg-gea-slate-100 flex items-center justify-center text-gea-slate-600">
+                    <Icon className="w-5 h-5" aria-hidden="true" />
                   </div>
                 </div>
 
@@ -96,13 +99,13 @@ export const EnrollmentSteps: React.FC = React.memo(() => {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-gea-slate-100 text-[11px] font-bold text-gea-slate-400 uppercase tracking-wider">
+                <div className="mt-6 pt-4 border-t border-gea-slate-100 text-xs font-bold text-gea-slate-600 uppercase tracking-wider">
                   Etapa {index + 1} de 4
                 </div>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ol>
 
         {/* Central CTA button below steps */}
         <div className="text-center">
@@ -113,7 +116,7 @@ export const EnrollmentSteps: React.FC = React.memo(() => {
             className="tap-target gap-2 font-bold shadow-lg shadow-gea-red/25 hover:shadow-gea-red/40"
           >
             <span>Dar o primeiro passo agora</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5" aria-hidden="true" />
           </Button>
         </div>
 

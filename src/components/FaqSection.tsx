@@ -76,7 +76,7 @@ export const FaqSection: React.FC = React.memo(() => {
         {/* Section Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gea-navy/10 text-gea-navy font-bold text-xs uppercase tracking-wider mb-3">
-            <HelpCircle className="w-3.5 h-3.5 text-gea-red" />
+            <HelpCircle className="w-3.5 h-3.5 text-gea-red" aria-hidden="true" />
             <span>Tire Suas Dúvidas</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gea-navy tracking-tight mb-4">
@@ -109,15 +109,15 @@ export const FaqSection: React.FC = React.memo(() => {
             <h3 className="text-sm sm:text-base font-bold text-gea-navy">
               Tem alguma dúvida específica que não está aqui?
             </h3>
-            <p className="text-xs text-gea-slate-500">
+            <p className="text-xs text-gea-slate-600">
               Converse diretamente com a equipe de atendimento da GEA em tempo real.
             </p>
           </div>
           <button
             onClick={handleFaqWhatsApp}
-            className="tap-target px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-sm shrink-0 transition-all"
+            className="tap-target px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-sm shrink-0 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2"
           >
-            <MessageCircle className="w-4 h-4" />
+            <MessageCircle className="w-4 h-4" aria-hidden="true" />
             <span>Tirar dúvida no WhatsApp</span>
           </button>
         </div>

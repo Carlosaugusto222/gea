@@ -48,7 +48,7 @@ export const MethodologySection: React.FC = React.memo(() => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gea-navy/10 text-gea-navy font-bold text-xs uppercase tracking-wider mb-3">
-            <Compass className="w-3.5 h-3.5 text-gea-navy" />
+            <Compass className="w-3.5 h-3.5 text-gea-navy" aria-hidden="true" />
             <span>Abordagem Pedagógica</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gea-navy tracking-tight mb-4">
@@ -60,11 +60,11 @@ export const MethodologySection: React.FC = React.memo(() => {
         </div>
 
         {/* 4 Core Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" aria-label="Quatro habilidades fundamentais">
           {skills.map((skill) => {
             const Icon = skill.icon;
             return (
-              <div
+              <li
                 key={skill.title}
                 className="bg-white rounded-2xl p-6 sm:p-7 border border-gea-slate-200/90 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
               >
@@ -73,9 +73,9 @@ export const MethodologySection: React.FC = React.memo(() => {
                     <div
                       className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${skill.color} shadow-xs`}
                     >
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-6 h-6" aria-hidden="true" />
                     </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-gea-slate-100 text-gea-slate-600">
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-gea-slate-100 text-gea-slate-700">
                       {skill.tag}
                     </span>
                   </div>
@@ -91,14 +91,14 @@ export const MethodologySection: React.FC = React.memo(() => {
                   </p>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-gea-slate-100 text-xs font-semibold text-gea-navy/70 flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-emerald-600" />
+                <div className="pt-5 mt-5 border-t border-gea-slate-100 text-xs font-semibold text-gea-navy/80 flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-emerald-700" aria-hidden="true" />
                   <span>Aplicação imediata em aula</span>
                 </div>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
         {/* Credibility & International Standards Card */}
         <div className="bg-gradient-to-br from-[#0F2547] to-[#153460] rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
@@ -109,53 +109,53 @@ export const MethodologySection: React.FC = React.memo(() => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-gea-yellow text-xs font-bold uppercase tracking-wider mb-4 border border-white/10">
-                <Award className="w-3.5 h-3.5" />
+                <Award className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Credibilidade & Rigor Pedagógico</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold mb-4 leading-snug">
                 Alinhamento com o Quadro Comum Europeu de Referência (CEFR)
               </h3>
-              <p className="text-sm sm:text-base text-white/80 leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-white/90 leading-relaxed mb-6">
                 Todas as etapas do aprendizado na GEA são mapeadas nos níveis internacionais (A1, A2, B1, B2, C1 e C2). Isso garante que cada ano de estudo corresponda a uma evolução mensurável, reconhecida por universidades e instituições em todo o mundo.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="bg-white/10 rounded-xl p-4 border border-white/10">
+              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                <li className="bg-white/10 rounded-xl p-4 border border-white/10">
                   <div className="text-gea-yellow font-extrabold text-xl sm:text-2xl mb-1">
                     CEFR A1 → C2
                   </div>
-                  <div className="text-xs text-white/70">
+                  <div className="text-xs text-white/80">
                     Níveis estruturados e transparentes de evolução.
                   </div>
-                </div>
+                </li>
 
-                <div className="bg-white/10 rounded-xl p-4 border border-white/10">
+                <li className="bg-white/10 rounded-xl p-4 border border-white/10">
                   <div className="text-gea-yellow font-extrabold text-xl sm:text-2xl mb-1">
                     Sem Decoreba
                   </div>
-                  <div className="text-xs text-white/70">
+                  <div className="text-xs text-white/80">
                     Gramática contextualizada com aplicação em situações reais.
                   </div>
-                </div>
+                </li>
 
-                <div className="bg-white/10 rounded-xl p-4 border border-white/10">
+                <li className="bg-white/10 rounded-xl p-4 border border-white/10">
                   <div className="text-gea-yellow font-extrabold text-xl sm:text-2xl mb-1">
                     Feedbacks Reais
                   </div>
-                  <div className="text-xs text-white/70">
+                  <div className="text-xs text-white/80">
                     Relatórios periódicos de evolução compartilhados com a família.
                   </div>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
 
             <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
-              <ShieldCheck className="w-16 h-16 text-gea-yellow mb-3" />
+              <ShieldCheck className="w-16 h-16 text-gea-yellow mb-3" aria-hidden="true" />
               <div className="text-lg font-bold mb-1">Metodologia Consistente</div>
-              <p className="text-xs text-white/70 leading-relaxed max-w-xs mb-4">
+              <p className="text-xs text-white/80 leading-relaxed max-w-xs mb-4">
                 Professores treinados continuamente na abordagem humanizada e comunicativa da GEA.
               </p>
-              <span className="text-[11px] text-white/50 border-t border-white/10 pt-3 w-full">
+              <span className="text-xs text-white/70 border-t border-white/10 pt-3 w-full">
                 Material didático internacionalmente chancelado
               </span>
             </div>

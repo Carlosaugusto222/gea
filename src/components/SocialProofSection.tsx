@@ -48,7 +48,7 @@ export const SocialProofSection: React.FC = React.memo(() => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gea-navy/10 text-gea-navy font-bold text-xs uppercase tracking-wider mb-3">
-            <Heart className="w-3.5 h-3.5 text-gea-red" />
+            <Heart className="w-3.5 h-3.5 text-gea-red" aria-hidden="true" />
             <span>Histórias de Evolução</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gea-navy tracking-tight mb-4">
@@ -60,24 +60,25 @@ export const SocialProofSection: React.FC = React.memo(() => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16" aria-label="Depoimentos de famílias e alunos">
           {testimonials.map((item) => (
-            <div
+            <li
               key={item.author}
               className="p-8 rounded-3xl bg-gea-slate-50 border border-gea-slate-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between relative"
             >
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-gea-slate-200 pointer-events-none" />
+              <Quote className="absolute top-6 right-6 w-10 h-10 text-gea-slate-200 pointer-events-none" aria-hidden="true" />
 
               <div>
                 {/* Rating Stars */}
-                <div className="flex items-center gap-1 mb-4">
+                <div className="flex items-center gap-1 mb-4" role="img" aria-label="Avaliação: 5 de 5 estrelas">
                   {[...Array(item.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 fill-gea-yellow text-gea-yellow"
+                      className="w-4 h-4 fill-amber-600 text-amber-600"
+                      aria-hidden="true"
                     />
                   ))}
-                  <span className="text-xs font-bold text-gea-slate-600 ml-2">
+                  <span className="text-xs font-bold text-gea-slate-700 ml-2" aria-hidden="true">
                     5.0
                   </span>
                 </div>
@@ -104,58 +105,58 @@ export const SocialProofSection: React.FC = React.memo(() => {
                     <span className="font-bold text-gea-navy text-sm sm:text-base">
                       {item.author}
                     </span>
-                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-white border border-gea-slate-200 text-gea-slate-600">
+                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-white border border-gea-slate-200 text-gea-slate-700">
                       {item.badge}
                     </span>
                   </div>
-                  <p className="text-xs text-gea-slate-500 truncate mt-0.5">
+                  <p className="text-xs text-gea-slate-600 truncate mt-0.5">
                     {item.role}
                   </p>
                 </div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {/* Real Evolution Metrics Banner */}
         <div className="rounded-2xl bg-gradient-to-r from-gea-navy to-[#18386b] text-white p-8 sm:p-10 shadow-lg">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="p-2">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" aria-label="Métricas da escola">
+            <li className="p-2">
               <div className="text-3xl sm:text-4xl font-extrabold text-gea-yellow mb-1">
                 +12 anos
               </div>
-              <div className="text-xs sm:text-sm text-white/80">
+              <div className="text-xs sm:text-sm text-white/90">
                 Construindo confiança e acolhimento
               </div>
-            </div>
+            </li>
 
-            <div className="p-2 border-l border-white/10">
+            <li className="p-2 border-l border-white/10">
               <div className="text-3xl sm:text-4xl font-extrabold text-gea-yellow mb-1">
                 98%
               </div>
-              <div className="text-xs sm:text-sm text-white/80">
+              <div className="text-xs sm:text-sm text-white/90">
                 Famílias satisfeitas com o acompanhamento
               </div>
-            </div>
+            </li>
 
-            <div className="p-2 border-l border-white/10">
+            <li className="p-2 border-l border-white/10">
               <div className="text-3xl sm:text-4xl font-extrabold text-gea-yellow mb-1">
                 Máx. 10
               </div>
-              <div className="text-xs sm:text-sm text-white/80">
+              <div className="text-xs sm:text-sm text-white/90">
                 Alunos por turma para atenção individual
               </div>
-            </div>
+            </li>
 
-            <div className="p-2 border-l border-white/10">
+            <li className="p-2 border-l border-white/10">
               <div className="text-3xl sm:text-4xl font-extrabold text-gea-yellow mb-1">
                 4 Habilidades
               </div>
-              <div className="text-xs sm:text-sm text-white/80">
+              <div className="text-xs sm:text-sm text-white/90">
                 Integradas com foco permanente na fala
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
 
       </div>

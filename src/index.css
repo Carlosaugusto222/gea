@@ -23,6 +23,12 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-tap-highlight-color: transparent;
   }
+
+  /* Global visible focus indicator for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid #0F2547;
+    outline-offset: 2px;
+  }
 }
 
 /* Custom scrollbar */
@@ -40,8 +46,24 @@
   background: #94a3b8;
 }
 
-/* Utilities for touch and animations */
+/* Utilities for touch targets (WCAG 2.1 AA >= 44x44px) */
 .tap-target {
-  min-height: 48px;
-  min-width: 48px;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
 }

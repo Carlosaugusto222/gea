@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import {
   MapPin,
@@ -10,6 +10,7 @@ import {
   Sparkles,
   ShieldCheck,
   Send,
+  AlertCircle,
 } from "lucide-react";
 import {
   trackConversionEvent,
@@ -35,6 +36,7 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [phoneError, setPhoneError] = useState("");
+  const successRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (selectedAgeGroup) {
@@ -45,6 +47,12 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
       }));
     }
   }, [selectedAgeGroup]);
+
+  useEffect(() => {
+    if (isSubmitted) {
+      successRef.current?.focus();
+    }
+  }, [isSubmitted]);
 
   // Phone masking: (99) 99999-9999
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -150,13 +158,13 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
           <div className="lg:col-span-6 space-y-8">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-gea-yellow text-xs font-bold uppercase tracking-wider mb-4 border border-white/10">
-                <Coffee className="w-3.5 h-3.5" />
+                <Coffee className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Venha nos visitar</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
                 Venha conhecer a GEA de perto
               </h2>
-              <p className="text-base sm:text-lg text-white/80 leading-relaxed font-normal">
+              <p className="text-base sm:text-lg text-white/90 leading-relaxed font-normal">
                 Nossas portas estão abertas para receber você e sua família. Venha tomar um café conosco, conhecer nossas salas, conversar com nossos coordenadores e tirar todas as dúvidas com tranquilidade.
               </p>
             </div>
@@ -165,9 +173,9 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
             <div>
               <button
                 onClick={handleDirectWhatsAppClick}
-                className="tap-target w-full sm:w-auto px-7 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base transition-all duration-200 flex items-center justify-center gap-3 shadow-lg shadow-emerald-950/40 active:scale-98"
+                className="tap-target w-full sm:w-auto px-7 py-4 rounded-2xl bg-emerald-700 hover:bg-emerald-600 text-white font-extrabold text-base transition-all duration-200 flex items-center justify-center gap-3 shadow-lg shadow-emerald-950/40 active:scale-98 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0F2547]"
               >
-                <MessageCircle className="w-6 h-6 text-white" />
+                <MessageCircle className="w-6 h-6 text-white" aria-hidden="true" />
                 <span>Chamar no WhatsApp agora</span>
               </button>
             </div>
@@ -175,14 +183,14 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
             {/* Address & Hours Information Card */}
             <div className="p-6 sm:p-7 rounded-3xl bg-white/10 backdrop-blur-md border border-white/15 space-y-5">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-gea-yellow text-gea-navy flex items-center justify-center shrink-0 font-bold">
+                <div className="w-10 h-10 rounded-xl bg-gea-yellow text-gea-navy flex items-center justify-center shrink-0 font-bold" aria-hidden="true">
                   <MapPin className="w-5 h-5 text-gea-navy" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-0.5">
                     Endereço da Unidade
                   </h3>
-                  <p className="text-sm text-white/80 leading-snug">
+                  <p className="text-sm text-white/90 leading-snug">
                     {GEA_ADDRESS}
                   </p>
                   <span className="text-xs text-gea-yellow mt-1 block">
@@ -192,14 +200,14 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
               </div>
 
               <div className="flex items-start gap-4 pt-4 border-t border-white/10">
-                <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center shrink-0" aria-hidden="true">
                   <Clock className="w-5 h-5 text-white/90" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-0.5">
                     Horário da Secretaria
                   </h3>
-                  <p className="text-sm text-white/80">
+                  <p className="text-sm text-white/90">
                     Segunda a Sexta: 08h às 20h30 <br />
                     Sábados: 08h às 14h
                   </p>
@@ -207,14 +215,14 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
               </div>
 
               <div className="flex items-start gap-4 pt-4 border-t border-white/10">
-                <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center shrink-0" aria-hidden="true">
                   <Phone className="w-5 h-5 text-white/90" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-0.5">
                     Telefone & Atendimento
                   </h3>
-                  <p className="text-sm text-white/80 font-mono">
+                  <p className="text-sm text-white/90 font-mono">
                     {GEA_PHONE_FORMATTED}
                   </p>
                 </div>
@@ -246,7 +254,7 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                 <>
                   <div className="mb-6">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gea-red/10 text-gea-red text-xs font-bold uppercase tracking-wider mb-2">
-                      <Sparkles className="w-3.5 h-3.5" />
+                      <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
                       <span>Aula Experimental 100% Gratuita</span>
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-gea-navy">
@@ -255,38 +263,51 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                     <p className="text-xs sm:text-sm text-gea-slate-600 mt-1">
                       Preencha os dados abaixo. Nossa equipe pedagógica entrará em contato com você sem nenhuma pressão de vendas.
                     </p>
+                    <p className="text-xs text-gea-slate-500 mt-2">
+                      <span className="text-gea-red font-bold" aria-hidden="true">*</span> Campos marcados com asterisco são de preenchimento obrigatório.
+                    </p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4" aria-label="Formulário de agendamento de aula experimental">
                     {/* Responsável / Aluno */}
                     <div>
-                      <label className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
-                        Nome do responsável (ou do aluno, se maior) <span className="text-gea-red">*</span>
+                      <label htmlFor="form-full-name" className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
+                        Nome do responsável (ou do aluno, se maior) <span className="text-gea-red" aria-hidden="true">*</span>
+                        <span className="sr-only">(obrigatório)</span>
                       </label>
                       <input
+                        id="form-full-name"
+                        name="fullName"
                         type="text"
                         required
+                        aria-required="true"
+                        autoComplete="name"
                         placeholder="Ex: Carlos Eduardo ou Maria Oliveira"
                         value={formData.fullName}
                         onChange={(e) =>
                           setFormData({ ...formData, fullName: e.target.value })
                         }
-                        className="w-full px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-gea-navy text-gea-navy font-medium placeholder:text-gea-slate-400 bg-gea-slate-50/50"
+                        className="w-full min-h-[44px] px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy text-gea-navy font-medium placeholder:text-gea-slate-500 bg-gea-slate-50/50"
                       />
                     </div>
 
                     {/* Faixa Etária */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
-                          Faixa etária do aluno <span className="text-gea-red">*</span>
+                        <label htmlFor="form-age-group" className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
+                          Faixa etária do aluno <span className="text-gea-red" aria-hidden="true">*</span>
+                          <span className="sr-only">(obrigatório)</span>
                         </label>
                         <select
+                          id="form-age-group"
+                          name="ageGroup"
+                          required
+                          aria-required="true"
                           value={formData.ageGroup}
                           onChange={(e) =>
                             setFormData({ ...formData, ageGroup: e.target.value })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-gea-navy text-gea-navy font-semibold bg-gea-slate-50/50"
+                          className="w-full min-h-[44px] px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy text-gea-navy font-semibold bg-gea-slate-50/50"
                         >
                           <option value="baby">GEA Baby (1 a 4 anos)</option>
                           <option value="kids">GEA Kids (5 a 9 anos)</option>
@@ -299,15 +320,20 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
 
                       {/* Idioma */}
                       <div>
-                        <label className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
-                          Idioma de interesse <span className="text-gea-red">*</span>
+                        <label htmlFor="form-language" className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
+                          Idioma de interesse <span className="text-gea-red" aria-hidden="true">*</span>
+                          <span className="sr-only">(obrigatório)</span>
                         </label>
                         <select
+                          id="form-language"
+                          name="language"
+                          required
+                          aria-required="true"
                           value={formData.language}
                           onChange={(e) =>
                             setFormData({ ...formData, language: e.target.value })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-gea-navy text-gea-navy font-semibold bg-gea-slate-50/50"
+                          className="w-full min-h-[44px] px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy text-gea-navy font-semibold bg-gea-slate-50/50"
                         >
                           <option value="ingles">Inglês</option>
                           <option value="espanhol">Espanhol</option>
@@ -320,15 +346,17 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                     {/* Turno e WhatsApp */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
+                        <label htmlFor="form-shift" className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
                           Turno de preferência
                         </label>
                         <select
+                          id="form-shift"
+                          name="shift"
                           value={formData.shift}
                           onChange={(e) =>
                             setFormData({ ...formData, shift: e.target.value })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-gea-navy text-gea-navy font-semibold bg-gea-slate-50/50"
+                          className="w-full min-h-[44px] px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy text-gea-navy font-semibold bg-gea-slate-50/50"
                         >
                           <option value="flexivel">Flexível / Qualquer turno</option>
                           <option value="manha">Manhã</option>
@@ -339,28 +367,44 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
-                          WhatsApp com DDD <span className="text-gea-red">*</span>
+                        <label htmlFor="form-phone" className="block text-xs font-bold text-gea-navy uppercase tracking-wider mb-1.5">
+                          WhatsApp com DDD <span className="text-gea-red" aria-hidden="true">*</span>
+                          <span className="sr-only">(obrigatório)</span>
                         </label>
                         <input
+                          id="form-phone"
+                          name="phone"
                           type="tel"
                           required
+                          aria-required="true"
+                          autoComplete="tel"
+                          aria-invalid={Boolean(phoneError)}
+                          aria-describedby={phoneError ? "form-phone-error" : "form-phone-hint"}
                           placeholder="(11) 99999-9999"
                           value={formData.phone}
                           onChange={handlePhoneChange}
-                          className="w-full px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-gea-navy text-gea-navy font-medium placeholder:text-gea-slate-400 bg-gea-slate-50/50"
+                          className="w-full min-h-[44px] px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy text-gea-navy font-medium placeholder:text-gea-slate-500 bg-gea-slate-50/50"
                         />
+                        <span id="form-phone-hint" className="sr-only">
+                          Digite o DDD de 2 dígitos e os números do telefone celular.
+                        </span>
                         {phoneError && (
-                          <p className="text-xs text-gea-red mt-1 font-semibold">
-                            {phoneError}
+                          <p
+                            id="form-phone-error"
+                            role="alert"
+                            aria-live="assertive"
+                            className="text-xs text-red-700 mt-1 font-semibold flex items-center gap-1"
+                          >
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                            <span>{phoneError}</span>
                           </p>
                         )}
                       </div>
                     </div>
 
                     {/* LGPD notice */}
-                    <div className="pt-2 text-[11px] text-gea-slate-500 leading-relaxed flex items-start gap-2">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <div className="pt-2 text-xs text-gea-slate-600 leading-relaxed flex items-start gap-2">
+                      <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" aria-hidden="true" />
                       <span>
                         Usaremos seus dados exclusivamente para entrar em contato sobre os cursos e agendamento na GEA, respeitando sua privacidade segundo a LGPD.
                       </span>
@@ -374,7 +418,7 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                         size="lg"
                         className="tap-target w-full text-base font-extrabold shadow-lg shadow-gea-red/30 hover:shadow-gea-red/50 transition-all flex items-center justify-center gap-2"
                       >
-                        <Send className="w-4 h-4" />
+                        <Send className="w-4 h-4" aria-hidden="true" />
                         <span>Quero conhecer a GEA</span>
                       </Button>
                     </div>
@@ -383,9 +427,15 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                 </>
               ) : (
                 /* Post-Submission Friendly Success State */
-                <div className="py-8 text-center animate-in fade-in duration-300">
-                  <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center mb-5 shadow-sm">
-                    <CheckCircle2 className="w-9 h-9" />
+                <div
+                  ref={successRef}
+                  tabIndex={-1}
+                  role="status"
+                  aria-live="polite"
+                  className="py-8 text-center animate-in fade-in duration-300 focus:outline-none"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-800 mx-auto flex items-center justify-center mb-5 shadow-sm">
+                    <CheckCircle2 className="w-9 h-9" aria-hidden="true" />
                   </div>
 
                   <h3 className="text-2xl font-extrabold text-gea-navy mb-3">
@@ -396,7 +446,7 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                     Nossa equipe pedagógica entrará em contato pelo WhatsApp informado (<strong>{formData.phone}</strong>) em breve para confirmar o melhor horário da aula experimental de <strong>{formData.fullName}</strong>.
                   </p>
 
-                  <div className="p-4 rounded-2xl bg-gea-slate-50 border border-gea-slate-200 mb-6 text-left text-xs text-gea-slate-600 space-y-1">
+                  <div className="p-4 rounded-2xl bg-gea-slate-50 border border-gea-slate-200 mb-6 text-left text-xs text-gea-slate-700 space-y-1">
                     <div className="font-bold text-gea-navy mb-1">
                       Resumo da sua solicitação:
                     </div>
@@ -407,22 +457,22 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                   </div>
 
                   <div className="space-y-3">
-                    <p className="text-xs text-gea-slate-500">
+                    <p className="text-xs text-gea-slate-600">
                       Quer adiantar a conversa agora mesmo sem esperar?
                     </p>
                     <button
                       type="button"
                       onClick={handleOpenWhatsAppFromSuccess}
-                      className="tap-target w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all"
+                      className="tap-target w-full py-3.5 px-6 min-h-[44px] rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2"
                     >
-                      <MessageCircle className="w-5 h-5" />
+                      <MessageCircle className="w-5 h-5" aria-hidden="true" />
                       <span>Falar no WhatsApp com meus dados preenchidos</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setIsSubmitted(false)}
-                      className="text-xs text-gea-slate-500 hover:text-gea-navy font-semibold underline pt-2"
+                      className="text-xs min-h-[44px] inline-flex items-center text-gea-slate-600 hover:text-gea-navy font-semibold underline pt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy rounded-sm"
                     >
                       Enviar outra solicitação
                     </button>

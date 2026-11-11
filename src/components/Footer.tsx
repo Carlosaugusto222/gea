@@ -48,118 +48,136 @@ export const Footer: React.FC = React.memo(() => {
           {/* Brand & Manifesto */}
           <div className="lg:col-span-5 space-y-4">
             <Logo isLight className="h-10" />
-            <p className="text-sm text-white/70 leading-relaxed max-w-sm mt-3">
+            <p className="text-sm text-white/90 leading-relaxed max-w-sm mt-3">
               Aprender idiomas com prática, acompanhamento próximo e experiências reais que ajudam o aluno a usar o idioma com mais confiança na vida.
             </p>
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3 pt-2" role="group" aria-label="Redes sociais da GEA">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram da GEA"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-gea-red hover:text-white flex items-center justify-center transition-colors text-white/80"
+                aria-label="Instagram da GEA Idiomas"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white/10 hover:bg-gea-red hover:text-white flex items-center justify-center transition-colors text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-[#09172d]"
               >
-                <InstagramIcon className="w-4 h-4" />
+                <InstagramIcon className="w-5 h-5" />
               </a>
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook da GEA"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-gea-red hover:text-white flex items-center justify-center transition-colors text-white/80"
+                aria-label="Facebook da GEA Idiomas"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white/10 hover:bg-gea-red hover:text-white flex items-center justify-center transition-colors text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-[#09172d]"
               >
-                <FacebookIcon className="w-4 h-4" />
+                <FacebookIcon className="w-5 h-5" />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn da GEA"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-gea-red hover:text-white flex items-center justify-center transition-colors text-white/80"
+                aria-label="LinkedIn da GEA Idiomas"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white/10 hover:bg-gea-red hover:text-white flex items-center justify-center transition-colors text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-[#09172d]"
               >
-                <LinkedinIcon className="w-4 h-4" />
+                <LinkedinIcon className="w-5 h-5" />
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="YouTube da GEA"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-gea-red hover:text-white flex items-center justify-center transition-colors text-white/80"
+                aria-label="YouTube da GEA Idiomas"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white/10 hover:bg-gea-red hover:text-white flex items-center justify-center transition-colors text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-[#09172d]"
               >
-                <YoutubeIcon className="w-4 h-4" />
+                <YoutubeIcon className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Quick Navigation */}
-          <div className="lg:col-span-3 space-y-3">
+          <nav className="lg:col-span-3 space-y-3" aria-label="Links rápidos do rodapé">
             <h3 className="text-sm font-extrabold uppercase tracking-wider text-gea-yellow">
               Navegação
             </h3>
-            <ul className="space-y-2 text-sm text-white/70">
+            <ul className="space-y-1 text-sm text-white/90">
               <li>
-                <a href="#cursos" className="hover:text-white transition-colors">
+                <a
+                  href="#cursos"
+                  className="hover:text-white transition-colors min-h-[44px] inline-flex items-center px-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow"
+                >
                   Cursos por Faixa Etária
                 </a>
               </li>
               <li>
-                <a href="#metodologia" className="hover:text-white transition-colors">
+                <a
+                  href="#metodologia"
+                  className="hover:text-white transition-colors min-h-[44px] inline-flex items-center px-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow"
+                >
                   Metodologia Pedagógica
                 </a>
               </li>
               <li>
-                <a href="#diferenciais" className="hover:text-white transition-colors">
+                <a
+                  href="#diferenciais"
+                  className="hover:text-white transition-colors min-h-[44px] inline-flex items-center px-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow"
+                >
                   Diferenciais Reais
                 </a>
               </li>
               <li>
-                <a href="#escola" className="hover:text-white transition-colors">
+                <a
+                  href="#escola"
+                  className="hover:text-white transition-colors min-h-[44px] inline-flex items-center px-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow"
+                >
                   A Escola & Projetos
                 </a>
               </li>
               <li>
-                <a href="#depoimentos" className="hover:text-white transition-colors">
+                <a
+                  href="#depoimentos"
+                  className="hover:text-white transition-colors min-h-[44px] inline-flex items-center px-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow"
+                >
                   Depoimentos de Famílias
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors">
+                <a
+                  href="#faq"
+                  className="hover:text-white transition-colors min-h-[44px] inline-flex items-center px-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow"
+                >
                   Perguntas Frequentes
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Contacts & Location */}
           <div className="lg:col-span-4 space-y-3">
             <h3 className="text-sm font-extrabold uppercase tracking-wider text-gea-yellow">
               Atendimento & Secretaria
             </h3>
-            <div className="space-y-2.5 text-sm text-white/70">
+            <div className="space-y-2.5 text-sm text-white/90">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-gea-yellow shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-gea-yellow shrink-0 mt-0.5" aria-hidden="true" />
                 <span>{GEA_ADDRESS}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-gea-yellow shrink-0" />
+                <Phone className="w-4 h-4 text-gea-yellow shrink-0" aria-hidden="true" />
                 <a
                   href={`tel:${GEA_PHONE_RAW}`}
-                  className="hover:text-white hover:underline transition-colors"
+                  className="hover:text-white hover:underline transition-colors min-h-[44px] inline-flex items-center px-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow"
                 >
                   {GEA_PHONE_FORMATTED}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-gea-yellow shrink-0" />
+                <Mail className="w-4 h-4 text-gea-yellow shrink-0" aria-hidden="true" />
                 <a
                   href="mailto:contato@geaidiomas.com.br"
-                  className="hover:text-white hover:underline transition-colors"
+                  className="hover:text-white hover:underline transition-colors min-h-[44px] inline-flex items-center px-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow"
                 >
                   contato@geaidiomas.com.br
                 </a>
               </div>
             </div>
-            <div className="pt-2 text-xs text-white/50">
+            <div className="pt-2 text-xs text-white/75">
               Segunda a Sexta: 08h às 20h30 | Sábados: 08h às 14h
             </div>
           </div>
@@ -167,19 +185,19 @@ export const Footer: React.FC = React.memo(() => {
         </div>
 
         {/* Bottom credits */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80">
           <div>
             © {new Date().getFullYear()} GEA Idiomas. Todos os direitos reservados.
           </div>
-          <div className="flex items-center gap-1 text-white/50">
+          <div className="flex items-center gap-1 text-white/75">
             <span>Ensinando idiomas com afeto e consistência pedagógica.</span>
           </div>
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-gea-yellow hover:text-white font-bold transition-colors"
+            className="flex items-center gap-1.5 text-gea-yellow hover:text-white font-bold transition-colors min-h-[44px] px-3 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-yellow"
           >
             <span>Voltar ao topo</span>
-            <ArrowUp className="w-3.5 h-3.5" />
+            <ArrowUp className="w-3.5 h-3.5" aria-hidden="true" />
           </button>
         </div>
       </div>

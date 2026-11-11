@@ -54,11 +54,11 @@ export const Logo: React.FC<LogoProps> = React.memo(({ className = "h-9", isLigh
           >
             GEA
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#E1251B] ml-0.5 mb-1" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#D32017] ml-0.5 mb-1" aria-hidden="true" />
         </div>
         <span
-          className={`text-[10px] uppercase font-bold tracking-[0.22em] ${
-            isLight ? "text-gea-yellow" : "text-[#E1251B]"
+          className={`text-xs uppercase font-bold tracking-[0.22em] ${
+            isLight ? "text-gea-yellow" : "text-[#D32017]"
           }`}
         >
           Idiomas
