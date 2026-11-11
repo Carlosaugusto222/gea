@@ -1,5 +1,5 @@
 import React from "react";
-import { Star, Quote, Heart, CheckCircle2, Award, Sparkles } from "lucide-react";
+import { Star, Quote, Heart } from "lucide-react";
 
 export const SocialProofSection: React.FC = () => {
   const testimonials = [
@@ -61,9 +61,9 @@ export const SocialProofSection: React.FC = () => {
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {testimonials.map((item, index) => (
+          {testimonials.map((item) => (
             <div
-              key={index}
+              key={item.author}
               className="p-8 rounded-3xl bg-gea-slate-50 border border-gea-slate-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between relative"
             >
               <Quote className="absolute top-6 right-6 w-10 h-10 text-gea-slate-200 pointer-events-none" />

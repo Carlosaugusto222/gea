@@ -12,7 +12,8 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -43,7 +44,11 @@ export const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 max-w-7xl flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#"
+          href="#inicio"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           className="focus:outline-none focus:ring-2 focus:ring-gea-navy rounded-lg p-0.5"
           aria-label="GEA Idiomas - Início"
         >

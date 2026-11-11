@@ -75,11 +75,11 @@ export const DifferentialsSection: React.FC = () => {
 
         {/* 6 Grid Blocks */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {differentials.map((item, index) => {
+          {differentials.map((item) => {
             const Icon = item.icon;
             return (
               <div
-                key={index}
+                key={item.title}
                 className="group p-8 rounded-2xl bg-gea-slate-50 border border-gea-slate-200/80 hover:bg-white hover:border-gea-navy/30 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>

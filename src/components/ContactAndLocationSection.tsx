@@ -40,7 +40,11 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
 
   useEffect(() => {
     if (selectedAgeGroup) {
-      setFormData((prev) => ({ ...prev, ageGroup: selectedAgeGroup }));
+      setFormData((prev) => ({
+        ...prev,
+        ageGroup: selectedAgeGroup,
+        ...(selectedAgeGroup === "espanhol" ? { language: "espanhol" } : {}),
+      }));
     }
   }, [selectedAgeGroup]);
 
@@ -87,21 +91,36 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
     setIsSubmitted(true);
   };
 
-  const handleOpenWhatsAppFromSuccess = () => {
-    const ageLabelMap: Record<string, string> = {
-      baby: "Baby (1-4 anos)",
-      kids: "Kids (5-9 anos)",
-      preteen: "Preteen (10-12 anos)",
-      teens: "Teens (13-17 anos)",
-      adults: "Adultos (18+)",
-      espanhol: "Espanhol & Conversação",
-    };
+  const ageLabelMap: Record<string, string> = {
+    baby: "Baby (1-4 anos)",
+    kids: "Kids (5-9 anos)",
+    preteen: "Preteen (10-12 anos)",
+    teens: "Teens (13-17 anos)",
+    adults: "Adultos (18+)",
+    espanhol: "Espanhol & Conversação",
+  };
 
+  const languageLabelMap: Record<string, string> = {
+    ingles: "Inglês",
+    espanhol: "Espanhol",
+    conversacao: "Conversação Intensiva",
+    ambos: "Inglês + Espanhol",
+  };
+
+  const shiftLabelMap: Record<string, string> = {
+    flexivel: "Flexível / Qualquer turno",
+    manha: "Manhã",
+    tarde: "Tarde",
+    noite: "Noite",
+    sabado: "Sábado",
+  };
+
+  const handleOpenWhatsAppFromSuccess = () => {
     const text = `Olá GEA! Acabei de enviar meu formulário de aula experimental no site.\n\n` +
       `*Nome:* ${formData.fullName}\n` +
-      `*Interesse:* ${formData.language.toUpperCase()}\n` +
+      `*Interesse:* ${languageLabelMap[formData.language] || formData.language}\n` +
       `*Faixa:* ${ageLabelMap[formData.ageGroup] || formData.ageGroup}\n` +
-      `*Turno preferido:* ${formData.shift}\n` +
+      `*Turno preferido:* ${shiftLabelMap[formData.shift] || formData.shift}\n` +
       `Gostaria de confirmar os horários disponíveis!`;
 
     trackConversionEvent("form_redirect_whatsapp", { name: formData.fullName });
@@ -384,8 +403,9 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                       Resumo da sua solicitação:
                     </div>
                     <div>• <strong>Nome:</strong> {formData.fullName}</div>
-                    <div>• <strong>Idioma:</strong> {formData.language.toUpperCase()}</div>
-                    <div>• <strong>Turno preferido:</strong> {formData.shift}</div>
+                    <div>• <strong>Idioma:</strong> {languageLabelMap[formData.language] || formData.language}</div>
+                    <div>• <strong>Faixa:</strong> {ageLabelMap[formData.ageGroup] || formData.ageGroup}</div>
+                    <div>• <strong>Turno preferido:</strong> {shiftLabelMap[formData.shift] || formData.shift}</div>
                   </div>
 
                   <div className="space-y-3">

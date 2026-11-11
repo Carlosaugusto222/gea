@@ -71,7 +71,7 @@ export const EnrollmentSteps: React.FC = () => {
             const Icon = item.icon;
             return (
               <div
-                key={index}
+                key={item.step}
                 className="relative bg-white rounded-3xl p-7 border border-gea-slate-200/90 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Step Number Badge */}

@@ -30,15 +30,13 @@ export function trackConversionEvent(
     ...payload,
   };
 
-  // Safe console log for testing / debugging
-  console.log(`[GEA Analytics] ${eventName}:`, eventData);
-
+  // Safe analytics dispatch without polluting production console
   // Google Analytics 4 (gtag)
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     try {
       window.gtag("event", eventName, eventData);
-    } catch (err) {
-      console.warn("[GEA Analytics] Error dispatching to gtag:", err);
+    } catch {
+      // Discard analytics dispatch errors in production
     }
   }
 
@@ -52,8 +50,8 @@ export function trackConversionEvent(
       } else {
         window.fbq("trackCustom", eventName, eventData);
       }
-    } catch (err) {
-      console.warn("[GEA Analytics] Error dispatching to fbq:", err);
+    } catch {
+      // Discard analytics dispatch errors in production
     }
   }
 

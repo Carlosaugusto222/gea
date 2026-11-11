@@ -7,7 +7,7 @@ import {
   Heart,
   ArrowUp,
 } from "lucide-react";
-import { GEA_ADDRESS, GEA_PHONE_FORMATTED } from "@/lib/analytics";
+import { GEA_ADDRESS, GEA_PHONE_FORMATTED, GEA_PHONE_RAW } from "@/lib/analytics";
 
 // Clean SVG social icons
 const InstagramIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
@@ -143,11 +143,21 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-gea-yellow shrink-0" />
-                <span>{GEA_PHONE_FORMATTED}</span>
+                <a
+                  href={`tel:${GEA_PHONE_RAW}`}
+                  className="hover:text-white hover:underline transition-colors"
+                >
+                  {GEA_PHONE_FORMATTED}
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-gea-yellow shrink-0" />
-                <span>contato@geaidiomas.com.br</span>
+                <a
+                  href="mailto:contato@geaidiomas.com.br"
+                  className="hover:text-white hover:underline transition-colors"
+                >
+                  contato@geaidiomas.com.br
+                </a>
               </div>
             </div>
             <div className="pt-2 text-xs text-white/50">

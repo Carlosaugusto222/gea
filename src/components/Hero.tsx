@@ -8,7 +8,6 @@ import {
   Users,
   CheckCircle2,
   CalendarCheck,
-  Star,
   Award,
 } from "lucide-react";
 
@@ -31,7 +30,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-white via-gea-slate-50 to-gea-slate-100/70 border-b border-gea-slate-200/60">
+    <section id="inicio" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-white via-gea-slate-50 to-gea-slate-100/70 border-b border-gea-slate-200/60">
       {/* Background Subtle Geometric Glows */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-gradient-to-tr from-gea-yellow/15 via-gea-red/10 to-transparent blur-3xl -z-10 pointer-events-none" />
       <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-gea-navy/5 blur-2xl -z-10 pointer-events-none" />

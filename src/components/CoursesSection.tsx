@@ -3,12 +3,6 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { trackConversionEvent } from "@/lib/analytics";
 import {
-  Baby,
-  Smile,
-  Compass,
-  GraduationCap,
-  Briefcase,
-  Languages,
   Clock,
   Users,
   CheckCircle,
@@ -214,7 +208,7 @@ export const CoursesSection: React.FC<CoursesSectionProps> = ({ onSelectCourse }
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 ${
                   activeTab === tab.id
-                    ? "bg-gea-navy text-white shadow-md scale-102"
+                    ? "bg-gea-navy text-white shadow-md scale-[1.02]"
                     : "bg-gea-slate-100 text-gea-slate-600 hover:bg-gea-slate-200"
                 }`}
               >
@@ -250,7 +244,7 @@ export const CoursesSection: React.FC<CoursesSectionProps> = ({ onSelectCourse }
                 </div>
 
                 {/* Subtle Tag Overlay */}
-                <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/60 text-white text-[9px] backdrop-blur-xs font-mono">
+                <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/60 text-white text-[9px] backdrop-blur-sm font-mono">
                   [Inserir foto real autorizada da GEA]
                 </div>
               </div>
@@ -273,7 +267,7 @@ export const CoursesSection: React.FC<CoursesSectionProps> = ({ onSelectCourse }
                 {/* Highlights List */}
                 <div className="space-y-2 mb-6">
                   {course.highlights.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs text-gea-slate-700">
+                    <div key={`${course.id}-highlight-${idx}`} className="flex items-start gap-2 text-xs text-gea-slate-700">
                       <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </div>

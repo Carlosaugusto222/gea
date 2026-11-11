@@ -1,5 +1,5 @@
 import React from "react";
-import { Mic, Newspaper, Palette, Utensils, Heart, Users2, Sparkles } from "lucide-react";
+import { Mic, Newspaper, Palette, Heart, Users2, Sparkles } from "lucide-react";
 
 export const InsideSchoolSection: React.FC = () => {
   const experiences = [
@@ -75,11 +75,11 @@ export const InsideSchoolSection: React.FC = () => {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {experiences.map((item, index) => {
+          {experiences.map((item) => {
             const Icon = item.icon;
             return (
               <div
-                key={index}
+                key={item.title}
                 className={`${item.size} group relative bg-white rounded-3xl overflow-hidden border border-gea-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col`}
               >
                 {/* Visual Area */}
@@ -101,7 +101,7 @@ export const InsideSchoolSection: React.FC = () => {
                   </div>
 
                   {/* Placeholder label */}
-                  <div className="absolute bottom-3 right-4 text-[10px] text-white/80 font-mono bg-black/50 px-2 py-0.5 rounded backdrop-blur-xs">
+                  <div className="absolute bottom-3 right-4 text-[10px] text-white/80 font-mono bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">
                     [Inserir foto real autorizada da GEA]
                   </div>
                 </div>

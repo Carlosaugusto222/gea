@@ -61,11 +61,11 @@ export const MethodologySection: React.FC = () => {
 
         {/* 4 Core Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {skills.map((skill, index) => {
+          {skills.map((skill) => {
             const Icon = skill.icon;
             return (
               <div
-                key={index}
+                key={skill.title}
                 className="bg-white rounded-2xl p-6 sm:p-7 border border-gea-slate-200/90 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
               >
                 <div>

@@ -18,10 +18,14 @@ export const FloatingWhatsApp: React.FC = () => {
     <div className="fixed bottom-5 right-5 z-50 flex items-end gap-3 select-none">
       {/* Tooltip speech bubble */}
       {showTooltip && (
-        <div className="hidden sm:flex items-center gap-2 bg-white text-gea-navy px-3.5 py-2 rounded-2xl shadow-xl border border-gea-slate-200 text-xs font-bold animate-in fade-in slide-in-from-bottom-2 duration-300">
+        <div
+          onClick={handleClick}
+          className="hidden sm:flex items-center gap-2 bg-white text-gea-navy px-3.5 py-2 rounded-2xl shadow-xl border border-gea-slate-200 text-xs font-bold animate-in fade-in slide-in-from-bottom-2 duration-300 cursor-pointer hover:bg-gea-slate-50 transition-colors"
+        >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>Dúvidas? Fale com a GEA</span>
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               setShowTooltip(false);
