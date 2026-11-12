@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Accordion,
   AccordionItem,
@@ -9,7 +9,6 @@ import { HelpCircle, MessageCircle } from "lucide-react";
 import { trackConversionEvent, getWhatsAppUrl } from "@/lib/analytics";
 
 export const FaqSection: React.FC = React.memo(() => {
-  const [openItem, setOpenItem] = useState<string | undefined>(undefined);
   const faqs = [
     {
       id: "faq-1",
@@ -90,27 +89,7 @@ export const FaqSection: React.FC = React.memo(() => {
 
         {/* Accordion Component */}
         <div className="bg-gea-slate-50 rounded-3xl p-6 sm:p-10 border border-gea-slate-200/80 shadow-xs mb-10">
-          <div className="flex items-center justify-between mb-4 pb-2 border-b border-gea-slate-200/60">
-            <span className="text-xs text-gea-slate-500 font-medium">
-              Clique em uma pergunta para expandir ou retrair
-            </span>
-            {openItem && (
-              <button
-                type="button"
-                onClick={() => setOpenItem(undefined)}
-                className="text-xs font-bold text-gea-red hover:text-gea-navy transition-colors inline-flex items-center gap-1.5 py-1 px-2.5 rounded-lg bg-white border border-gea-slate-200 shadow-xs hover:border-gea-slate-300"
-              >
-                <span>Retrair todas</span>
-              </button>
-            )}
-          </div>
-          <Accordion
-            type="single"
-            collapsible
-            value={openItem}
-            onValueChange={setOpenItem}
-            className="w-full"
-          >
+          <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq) => (
               <AccordionItem key={faq.id} value={faq.id}>
                 <AccordionTrigger className="text-left text-base sm:text-lg font-bold">

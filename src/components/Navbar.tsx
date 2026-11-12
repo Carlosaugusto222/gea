@@ -6,57 +6,18 @@ import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 
 export const Navbar: React.FC = React.memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isNavVisible, setIsNavVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 20);
-
-      // Comportamento retrátil do cabeçalho
-      if (currentScrollY <= 60) {
-        setIsNavVisible(true);
-      } else if (currentScrollY > lastScrollY.current + 8) {
-        // Rolagem para baixo: retrai a barra e fecha o menu se estiver aberto
-        setIsNavVisible(false);
-        setMobileMenuOpen(false);
-      } else if (currentScrollY < lastScrollY.current - 8) {
-        // Rolagem para cima: reexibe a barra suavemente
-        setIsNavVisible(true);
-      }
-      lastScrollY.current = currentScrollY;
+      setIsScrolled(window.scrollY > 20);
     };
-
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Retrair menu móvel ao clicar fora
-  useEffect(() => {
-    if (!mobileMenuOpen) return;
-
-    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(e.target as Node) &&
-        toggleButtonRef.current &&
-        !toggleButtonRef.current.contains(e.target as Node)
-      ) {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, [mobileMenuOpen]);
 
   // Trap focus and handle Escape inside mobile drawer
   useEffect(() => {
@@ -111,16 +72,13 @@ export const Navbar: React.FC = React.memo(() => {
   };
 
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${
-          isNavVisible ? "translate-y-0" : "-translate-y-full"
-        } ${
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gea-slate-200/80 py-2.5 sm:py-3"
-            : "bg-white/90 backdrop-blur-sm border-b border-transparent py-3 sm:py-4"
-        }`}
-      >
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gea-slate-200/80 py-2.5 sm:py-3"
+          : "bg-white/90 backdrop-blur-sm border-b border-transparent py-3 sm:py-4"
+      }`}
+    >
       <div className="container mx-auto px-4 max-w-7xl flex items-center justify-between">
         {/* Logo */}
         <a
@@ -308,16 +266,6 @@ export const Navbar: React.FC = React.memo(() => {
         </div>
       )}
     </header>
-
-    {/* Backdrop para retrair/fechar o menu móvel ao clicar fora */}
-    {mobileMenuOpen && (
-      <div
-        className="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 lg:hidden animate-in fade-in duration-200"
-        onClick={() => setMobileMenuOpen(false)}
-        aria-hidden="true"
-      />
-    )}
-  </>
-);
+  );
 });
 Navbar.displayName = "Navbar";

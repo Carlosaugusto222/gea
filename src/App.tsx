@@ -35,21 +35,20 @@ export function App() {
     setSelectedAgeGroup(courseId);
   }, []);
 
-  const normalizedPath = currentPath.toLowerCase().replace(/\/+$/, "") || "/";
-  // Only show NotFound if explicitly requested at /404, never accidentally on home/subpaths
-  const isExplicit404 =
-    normalizedPath === "/404" ||
-    normalizedPath.endsWith("/404") ||
-    normalizedPath.endsWith("/404.html");
+  const normalizedPath = currentPath.replace(/\/+$/, "") || "/";
+  const isHome =
+    normalizedPath === "/" ||
+    normalizedPath === "/index.html" ||
+    normalizedPath.endsWith("/index.html") ||
+    normalizedPath === "/gea";
 
-  if (isExplicit404) {
+  if (!isHome) {
     return (
       <Suspense fallback={<div className="min-h-screen bg-gea-slate-50" />}>
         <NotFound
           onGoHome={() => {
-            const homeTarget = window.location.pathname.toLowerCase().includes("/gea") ? "/gea/" : "/";
-            window.history.pushState({}, "", homeTarget);
-            setCurrentPath(homeTarget);
+            window.history.pushState({}, "", "/");
+            setCurrentPath("/");
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         />
