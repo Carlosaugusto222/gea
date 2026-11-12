@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>GEA Idiomas</title>
+    <script>
+      // Single Page Apps for GitHub Pages
+      // Redirects 404 paths back to root SPA with relative path
+      var pathSegmentsToKeep = 1; // '/gea/'
+      var l = window.location;
+      var repoPath = l.pathname.toLowerCase().startsWith('/gea') ? '/gea/' : '/';
+      var cleanPath = l.pathname.slice(repoPath.length);
+      var newUrl = l.protocol + '//' + l.host + repoPath + (cleanPath ? '#' + cleanPath : '') + l.search;
+      l.replace(newUrl);
+    </script>
+  </head>
+  <body>
+    Redirecionando para GEA Idiomas...
+  </body>
+</html>

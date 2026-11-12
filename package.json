@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/Carlosaugusto222/gea/issues"
   },
-  "homepage": "https://github.com/Carlosaugusto222/gea#readme",
+  "homepage": "https://carlosaugusto222.github.io/gea/",
   "dependencies": {
     "@radix-ui/react-accordion": "^1.3.1",
     "@radix-ui/react-slot": "^1.5.0",
