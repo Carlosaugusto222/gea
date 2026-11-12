@@ -14,7 +14,7 @@ export const FaqSection: React.FC = React.memo(() => {
       id: "faq-1",
       question: "A partir de qual idade a criança pode começar?",
       answer:
-        "Na GEA, recebemos crianças a partir de 1 ano de idade no programa GEA Baby (acompanhadas ou em turmas adaptadas), passando pelo GEA Kids (5 a 9 anos), Preteen (10 a 12 anos), Teens (13 a 17 anos) e turmas exclusivas para Adultos. Cada faixa etária possui metodologia, dinâmicas e material apropriados ao seu estágio de desenvolvimento cognitivo e emocional.",
+        "Na GEA, recebemos crianças a partir de 3 anos de idade no programa GEA Baby (03 a 06 anos), passando pelo GEA Kids (07 anos a 10), Preteen (11 a 14 anos) e turmas Teen e Adult (a partir de 15 anos). Cada faixa etária possui metodologia, dinâmicas e material apropriados ao seu estágio de desenvolvimento cognitivo e emocional.",
     },
     {
       id: "faq-2",

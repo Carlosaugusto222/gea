@@ -23,7 +23,7 @@ export const SocialProofSection: React.FC = React.memo(() => {
     },
     {
       author: "Carla & Marcos Ferreira",
-      role: "Pais da Sofia (14 anos, GEA Teens)",
+      role: "Pais da Sofia (15 anos, GEA Teens)",
       badge: "3 anos na GEA",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&crop=face&w=96&h=96&q=75&fm=webp",
       content:

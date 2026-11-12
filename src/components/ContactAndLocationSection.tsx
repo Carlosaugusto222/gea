@@ -98,12 +98,12 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
   };
 
   const ageLabelMap: Record<string, string> = {
-    baby: "Baby (1-4 anos)",
-    kids: "Kids (5-9 anos)",
-    preteen: "Preteen (10-12 anos)",
-    teens: "Teens (13-17 anos)",
-    adults: "Adultos (18+)",
-    espanhol: "Espanhol & Conversação",
+    baby: "Baby (03 a 06 anos)",
+    kids: "Kids (07 anos a 10)",
+    preteen: "Preteen (11 a 14 anos)",
+    teens: "Teen e Adult (a partir de 15 anos)",
+    adults: "Adultos (a partir de 15 anos)",
+    espanhol: "Espanhol & Conversação (a partir de 15 anos)",
   };
 
   const languageLabelMap: Record<string, string> = {
@@ -309,12 +309,12 @@ export const ContactAndLocationSection: React.FC<ContactSectionProps> = ({
                           }
                           className="w-full min-h-[44px] px-4 py-3 rounded-xl border border-gea-slate-300 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gea-navy text-gea-navy font-semibold bg-gea-slate-50/50"
                         >
-                          <option value="baby">GEA Baby (1 a 4 anos)</option>
-                          <option value="kids">GEA Kids (5 a 9 anos)</option>
-                          <option value="preteen">GEA Preteen (10 a 12 anos)</option>
-                          <option value="teens">GEA Teens (13 a 17 anos)</option>
-                          <option value="adults">GEA Adultos (18+ anos)</option>
-                          <option value="espanhol">Espanhol & Conversação</option>
+                          <option value="baby">GEA Baby (03 a 06 anos)</option>
+                          <option value="kids">GEA Kids (07 anos a 10)</option>
+                          <option value="preteen">GEA Preteen (11 a 14 anos)</option>
+                          <option value="teens">GEA Teen e Adult (a partir de 15 anos)</option>
+                          <option value="adults">GEA Adultos (a partir de 15 anos)</option>
+                          <option value="espanhol">Espanhol & Conversação (a partir de 15 anos)</option>
                         </select>
                       </div>
 

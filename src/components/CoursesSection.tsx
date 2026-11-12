@@ -29,7 +29,7 @@ export const coursesData: CourseData[] = [
     id: "baby",
     name: "GEA Baby",
     category: "baby",
-    targetAge: "1 a 4 anos",
+    targetAge: "03 a 06 anos",
     ageBadgeColor: "bg-pink-100 text-pink-800 border-pink-200",
     subtitle: "Estímulos sensoriais e musicalização",
     description:
@@ -48,7 +48,7 @@ export const coursesData: CourseData[] = [
     id: "kids",
     name: "GEA Kids",
     category: "kids",
-    targetAge: "5 a 9 anos",
+    targetAge: "07 anos a 10",
     ageBadgeColor: "bg-amber-100 text-amber-900 border-amber-200",
     subtitle: "Aprendizado natural e criatividade",
     description:
@@ -67,7 +67,7 @@ export const coursesData: CourseData[] = [
     id: "preteen",
     name: "GEA Preteen",
     category: "preteen",
-    targetAge: "10 a 12 anos",
+    targetAge: "11 a 14 anos",
     ageBadgeColor: "bg-sky-100 text-sky-900 border-sky-200",
     subtitle: "Transição dinâmica e comunicação ativa",
     description:
@@ -86,7 +86,7 @@ export const coursesData: CourseData[] = [
     id: "teens",
     name: "GEA Teens",
     category: "teens",
-    targetAge: "13 a 17 anos",
+    targetAge: "A partir de 15 anos",
     ageBadgeColor: "bg-indigo-100 text-indigo-900 border-indigo-200",
     subtitle: "Conectado ao universo jovem e autonomia",
     description:
@@ -105,7 +105,7 @@ export const coursesData: CourseData[] = [
     id: "adults",
     name: "GEA Adultos",
     category: "adults",
-    targetAge: "18+ anos",
+    targetAge: "A partir de 15 anos",
     ageBadgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
     subtitle: "Objetivos reais: carreira, viagens e fala prática",
     description:
@@ -124,7 +124,7 @@ export const coursesData: CourseData[] = [
     id: "espanhol",
     name: "Espanhol & Conversação",
     category: "espanhol",
-    targetAge: "Jovens e Adultos",
+    targetAge: "A partir de 15 anos",
     ageBadgeColor: "bg-orange-100 text-orange-900 border-orange-200",
     subtitle: "Imersão cultural e prática intensiva da fala",
     description:
@@ -150,10 +150,10 @@ export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSel
 
   const tabList = [
     { id: "todos", label: "Todos os Cursos" },
-    { id: "infantil", label: "Baby & Kids (1-9 anos)" },
-    { id: "jovens", label: "Preteen & Teens (10-17 anos)" },
-    { id: "adultos", label: "Adultos (18+)" },
-    { id: "espanhol", label: "Espanhol & Conversação" },
+    { id: "baby", label: "Baby de 03 a 06 anos" },
+    { id: "kids", label: "Kids de 07 anos a 10" },
+    { id: "preteen", label: "Preteen de 11 a 14 anos" },
+    { id: "teen-adult", label: "Teen e Adult, a partir de 15 anos" },
   ];
 
   const handleTabKeyDown = (e: React.KeyboardEvent, index: number) => {
@@ -183,10 +183,11 @@ export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSel
     activeTab === "todos"
       ? coursesData
       : coursesData.filter((c) => {
-          if (activeTab === "infantil") return c.category === "baby" || c.category === "kids";
-          if (activeTab === "jovens") return c.category === "preteen" || c.category === "teens";
-          if (activeTab === "adultos") return c.category === "adults";
-          if (activeTab === "espanhol") return c.category === "espanhol";
+          if (activeTab === "baby") return c.category === "baby";
+          if (activeTab === "kids") return c.category === "kids";
+          if (activeTab === "preteen") return c.category === "preteen";
+          if (activeTab === "teen-adult")
+            return c.category === "teens" || c.category === "adults" || c.category === "espanhol";
           return true;
         });
 
@@ -258,7 +259,13 @@ export const CoursesSection: React.FC<CoursesSectionProps> = React.memo(({ onSel
           id="painel-cursos"
           aria-labelledby={`tab-${activeTab}`}
           tabIndex={0}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 focus:outline-none"
+          className={`grid gap-7 focus:outline-none ${
+            filteredCourses.length === 1
+              ? "grid-cols-1 max-w-md mx-auto"
+              : filteredCourses.length === 2
+              ? "grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto"
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          }`}
         >
           {filteredCourses.map((course) => (
             <article
